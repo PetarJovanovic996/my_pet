@@ -3,5 +3,8 @@
   "hello": "Hello",
   "@hello": {},
   "welcome": "Welcome to the app!",
-  "@welcome": {}
+  "@welcome": {},
+  "welcomeButton": "Lets start",
+  "@welcomeButton": {}
+  
 }
