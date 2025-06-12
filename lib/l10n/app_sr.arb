@@ -1,0 +1,7 @@
+{
+  "@@locale": "sr",
+  "hello": "Zdravo",
+  "@hello": {},
+  "welcome": "Dobrodošli u aplikaciju!",
+  "@welcome": {}
+}

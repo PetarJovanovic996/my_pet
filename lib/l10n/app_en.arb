@@ -1,0 +1,7 @@
+{
+  "@@locale": "en",
+  "hello": "Hello",
+  "@hello": {},
+  "welcome": "Welcome to the app!",
+  "@welcome": {}
+}
