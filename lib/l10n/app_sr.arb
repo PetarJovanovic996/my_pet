@@ -5,5 +5,10 @@
   "welcome": "Dobrodošli u aplikaciju!",
   "@welcome": {},
    "welcomeButton": "Zapocni",
-  "@welcomeButton": {}
+  "@welcomeButton": {},
+    "appName": "MY PET",
+  "@appName": {},
+   "welcomeViewMessage": "ZA VAS I VASEG PRIJATELJA",
+  "@welcomeViewMessage": {}
+  
 }

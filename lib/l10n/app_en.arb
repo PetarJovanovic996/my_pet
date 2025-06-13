@@ -5,6 +5,10 @@
   "welcome": "Welcome to the app!",
   "@welcome": {},
   "welcomeButton": "Lets start",
-  "@welcomeButton": {}
+  "@welcomeButton": {},
+   "appName": "MY PET",
+  "@appName": {},
+   "welcomeViewMessage": "FOR YOU & YOUR FRIEND",
+  "@welcomeViewMessage": {}
   
 }
