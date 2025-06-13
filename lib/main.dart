@@ -4,6 +4,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_pet/core/app_block_observer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/core/theme.dart';
 import 'package:my_pet/data/models/language.dart';
 
 Future<void> main() async {
@@ -29,7 +30,10 @@ class MyApp extends StatelessWidget {
               .map((language) => language.locale)
               .toList(),
 
-      //dodati temu
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+
       debugShowCheckedModeBanner: false,
       title: 'My Pet',
       onGenerateRoute: MyRouter.onGenerateRoute,
