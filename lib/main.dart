@@ -3,29 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_pet/core/app_block_observer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/core/theme.dart';
 import 'package:my_pet/data/models/language.dart';
-import 'package:my_pet/firebase_options.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
+import 'package:my_pet/core/firebase_options.dart';
+import 'package:my_pet/l10n/app_localizations.dart';
 
 Future<void> main() async {
   Bloc.observer = AppBlocObserver();
 
   WidgetsFlutterBinding.ensureInitialized();
-  const SharedPreferencesOptions sharedPreferencesOptions =
-      SharedPreferencesOptions();
-  final sharedPreferences = await SharedPreferences.getInstance();
-  await migrateLegacySharedPreferencesToSharedPreferencesAsyncIfNecessary(
-    legacySharedPreferencesInstance: sharedPreferences,
-    sharedPreferencesAsyncOptions: sharedPreferencesOptions,
-    migrationCompletedKey: 'migrationCompleted',
-  );
-
-  //TODO: shared preference iskopiran iz proslog koda!
-  //provjera i pojasnjenje
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 

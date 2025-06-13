@@ -47,7 +47,9 @@ class AppTheme {
       ),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-          iconColor: WidgetStatePropertyAll(primaryColor),
+          iconColor: WidgetStatePropertyAll(
+            const Color.fromARGB(255, 245, 247, 245),
+          ),
           overlayColor: WidgetStatePropertyAll(
             const Color.fromARGB(0, 35, 46, 37),
           ),

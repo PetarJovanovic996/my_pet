@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:my_pet/l10n/app_localizations.dart';
+import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class WelcomeViewScreen extends StatelessWidget {
   const WelcomeViewScreen({super.key});
