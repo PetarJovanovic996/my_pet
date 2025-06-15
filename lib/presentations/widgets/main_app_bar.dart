@@ -12,8 +12,10 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         children: [
           Text(title),
           const Spacer(flex: 8),
+          const Spacer(flex: 8),
           const LogoutButton(),
-          const Spacer(),
+          Image.asset('assets/images/logo.jpg', height: 45),
+          const SizedBox.shrink(),
         ],
       ),
     );

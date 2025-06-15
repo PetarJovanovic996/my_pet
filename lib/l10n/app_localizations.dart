@@ -124,6 +124,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'FOR YOU & YOUR FRIEND'**
   String get welcomeViewMessage;
+
+  /// No description provided for @singInORregister.
+  ///
+  /// In en, this message translates to:
+  /// **'Register / Sing In'**
+  String get singInORregister;
+
+  /// No description provided for @singIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sing In'**
+  String get singIn;
+
+  /// No description provided for @register.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get register;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

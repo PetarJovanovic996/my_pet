@@ -22,4 +22,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get welcomeViewMessage => 'FOR YOU & YOUR FRIEND';
+
+  @override
+  String get singInORregister => 'Register / Sing In';
+
+  @override
+  String get singIn => 'Sing In';
+
+  @override
+  String get register => 'Register';
 }

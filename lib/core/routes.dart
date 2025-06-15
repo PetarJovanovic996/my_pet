@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_pet/presentations/screens/onboarding/lets_start_screen.dart';
-import 'package:my_pet/presentations/screens/onboarding/welcome_view_screen.dart';
+import 'package:my_pet/presentations/screens/home_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_facebook_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_google_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/lets_start_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/log_in_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/register_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/welcome_view_screen.dart';
 
 class Routes {
   static const String welcomeViewScreen = 'welcome-view-screen';
@@ -8,9 +13,10 @@ class Routes {
 
   static const String logInScreen = 'logIn-screen';
   static const String registerScreen = 'register-screen';
-  static const String onboardingScreen = 'onboarding-screen';
+  static const String continueWithGoogleScreen = 'continue-with-google-screen';
+  static const String continueWithFacebookScreen =
+      'continue-with-facebook-screen';
   static const String homeScreen = 'home-screen';
-  static const String editProfileScreen = 'edit-profile-screen';
 }
 
 class MyRouter {
@@ -21,11 +27,14 @@ class MyRouter {
           (Routes.welcomeViewScreen) => const WelcomeViewScreen(),
           (Routes.letsStartScreen) => const LetsStartScreen(),
 
-          //   (Routes.logInScreen) => const LogInScreen(),
-          // (Routes.registerScreen) => const RegisterScreen(),
-          // (Routes.onboardingScreen) => const OnboardingScreen(),
-          // (Routes.homeScreen) => const HomeScreen(),
-          // (Routes.editProfileScreen) => const EditProfileScreen(),
+          (Routes.logInScreen) => const SingInScreen(),
+          (Routes.registerScreen) => const RegisterScreen(),
+          (Routes.continueWithFacebookScreen) =>
+            const ContinueWithFacebookScreen(),
+
+          (Routes.continueWithGoogleScreen) => const ContinueWithGoogleScreen(),
+
+          (Routes.homeScreen) => const HomeScreen(),
 
           // Default route
           _ => const WelcomeViewScreen(),

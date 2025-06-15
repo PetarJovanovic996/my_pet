@@ -11,5 +11,9 @@
    "welcomeViewMessage": "ZA VAS I VASEG PRIJATELJA",
   "@welcomeViewMessage": {},
     "singInORregister": "Registruj se / Prijavi se",
-  "@singInORregister": {}
+  "@singInORregister": {},
+   "singIn": "Prijavi se",
+  "@singIn": {}  ,
+   "register": "Registruj se",
+  "@register": {}  
 }

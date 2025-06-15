@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
+import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
-class LetsStartScreen extends StatelessWidget {
-  const LetsStartScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(
-        title: AppLocalizations.of(context)!.welcome,
+        title: AppLocalizations.of(context)!.register,
+
         showSignOut: false,
       ),
     );

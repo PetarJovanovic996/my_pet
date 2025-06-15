@@ -22,4 +22,13 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get welcomeViewMessage => 'ZA VAS I VASEG PRIJATELJA';
+
+  @override
+  String get singInORregister => 'Registruj se / Prijavi se';
+
+  @override
+  String get singIn => 'Prijavi se';
+
+  @override
+  String get register => 'Registruj se';
 }
