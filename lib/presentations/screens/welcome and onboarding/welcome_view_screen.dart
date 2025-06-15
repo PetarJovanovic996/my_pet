@@ -11,7 +11,10 @@ class WelcomeViewScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset('assets/images/hello.jpg', fit: BoxFit.cover),
+            child: Image.asset(
+              'assets/images/appMainPic.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
 
           Align(
@@ -68,7 +71,7 @@ class WelcomeViewScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
 
-                  Image.asset('assets/images/logo.jpg', height: 80),
+                  Image.asset('assets/images/appLogo.jpg', height: 80),
                 ],
               ),
             ),
