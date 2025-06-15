@@ -9,6 +9,7 @@
    "appName": "MY PET",
   "@appName": {},
    "welcomeViewMessage": "FOR YOU & YOUR FRIEND",
-  "@welcomeViewMessage": {}
-  
+  "@welcomeViewMessage": {},
+  "singInORregister": "Register / Sing In",
+  "@singInORregister": {}  
 }

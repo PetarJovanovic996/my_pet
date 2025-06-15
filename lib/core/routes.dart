@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_pet/presentations/screens/welcome_view_screen.dart';
+import 'package:my_pet/presentations/screens/onboarding/lets_start_screen.dart';
+import 'package:my_pet/presentations/screens/onboarding/welcome_view_screen.dart';
 
 class Routes {
-  static const String welcomeViewScreen = 'welcome-view';
+  static const String welcomeViewScreen = 'welcome-view-screen';
+  static const String letsStartScreen = 'lets-start-screen';
+
   static const String logInScreen = 'logIn-screen';
   static const String registerScreen = 'register-screen';
   static const String onboardingScreen = 'onboarding-screen';
@@ -16,6 +19,8 @@ class MyRouter {
       builder: (BuildContext context) {
         return switch (routeSettings.name) {
           (Routes.welcomeViewScreen) => const WelcomeViewScreen(),
+          (Routes.letsStartScreen) => const LetsStartScreen(),
+
           //   (Routes.logInScreen) => const LogInScreen(),
           // (Routes.registerScreen) => const RegisterScreen(),
           // (Routes.onboardingScreen) => const OnboardingScreen(),

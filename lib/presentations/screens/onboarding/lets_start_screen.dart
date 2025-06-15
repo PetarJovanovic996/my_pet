@@ -1,0 +1,17 @@
+import 'package:flutter/material.dart';
+import 'package:my_pet/presentations/widgets/main_app_bar.dart';
+import 'package:my_pet/l10n/app_localizations.dart';
+
+class LetsStartScreen extends StatelessWidget {
+  const LetsStartScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: MainAppBar(
+        title: AppLocalizations.of(context)!.welcome,
+        showSignOut: false,
+      ),
+    );
+  }
+}

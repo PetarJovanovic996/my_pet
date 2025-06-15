@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class WelcomeViewScreen extends StatelessWidget {
   const WelcomeViewScreen({super.key});
@@ -51,7 +51,9 @@ class WelcomeViewScreen extends StatelessWidget {
                   ),
                   SizedBox(height: 16),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed(Routes.letsStartScreen);
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
                       padding: EdgeInsets.symmetric(
