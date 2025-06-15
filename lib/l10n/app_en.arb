@@ -1,0 +1,19 @@
+{
+  "@@locale": "en",
+  "hello": "Hello",
+  "@hello": {},
+  "welcome": "Welcome to the app!",
+  "@welcome": {},
+  "welcomeButton": "Lets start",
+  "@welcomeButton": {},
+   "appName": "MY PET",
+  "@appName": {},
+   "welcomeViewMessage": "FOR YOU & YOUR FRIEND",
+  "@welcomeViewMessage": {},
+  "singInORregister": "Register / Sing In",
+  "@singInORregister": {},
+   "singIn": "Sing In",
+  "@singIn": {}  ,
+   "register": "Register",
+  "@register": {}  
+}

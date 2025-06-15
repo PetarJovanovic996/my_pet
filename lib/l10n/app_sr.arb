@@ -1,0 +1,19 @@
+{
+  "@@locale": "sr",
+  "hello": "Zdravo",
+  "@hello": {},
+  "welcome": "Dobrodošli u aplikaciju!",
+  "@welcome": {},
+   "welcomeButton": "Zapocni",
+  "@welcomeButton": {},
+    "appName": "MY PET",
+  "@appName": {},
+   "welcomeViewMessage": "ZA VAS I VASEG PRIJATELJA",
+  "@welcomeViewMessage": {},
+    "singInORregister": "Registruj se / Prijavi se",
+  "@singInORregister": {},
+   "singIn": "Prijavi se",
+  "@singIn": {}  ,
+   "register": "Registruj se",
+  "@register": {}  
+}
