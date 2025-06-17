@@ -10,9 +10,8 @@ import 'package:my_pet/core/firebase_options.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
 
 Future<void> main() async {
-  Bloc.observer = AppBlocObserver();
-
   WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = AppBlocObserver();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
@@ -27,9 +26,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       localizationsDelegates: [
         AppLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales:
           Language.supportedLanguages
