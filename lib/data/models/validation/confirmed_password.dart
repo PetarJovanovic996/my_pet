@@ -1,9 +1,6 @@
 import 'package:formz/formz.dart';
 
-enum ConfirmedPasswordValidationError {
-  invalid,
-  mismatch,
-}
+enum ConfirmedPasswordValidationError { invalid, mismatch }
 
 class ConfirmedPassword
     extends FormzInput<String, ConfirmedPasswordValidationError> {
@@ -12,7 +9,7 @@ class ConfirmedPassword
   const ConfirmedPassword.pure({this.password = ''}) : super.pure('');
 
   const ConfirmedPassword.dirty({required this.password, String value = ''})
-      : super.dirty(value);
+    : super.dirty(value);
 
   @override
   ConfirmedPasswordValidationError? validator(String value) {
