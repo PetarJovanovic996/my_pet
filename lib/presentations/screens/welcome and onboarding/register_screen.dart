@@ -234,7 +234,3 @@ class _RegisterButton extends StatelessWidget {
     );
   }
 }
-
-//TODO: ovo je za test
-//sve izbrisati
-//popraviti validator fajlove
