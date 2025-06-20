@@ -112,6 +112,7 @@ class AuthenticationRepository {
         email: email,
         password: password,
       );
+      await _firebaseAuth.signOut();
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw RegisterWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {

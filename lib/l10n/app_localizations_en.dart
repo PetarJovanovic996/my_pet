@@ -70,4 +70,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Confirm your password';
+
+  @override
+  String get successfullSignIn => 'You are logged in';
+
+  @override
+  String get invalidSignIn => 'Invalid Log In';
+
+  @override
+  String get enterSingInInfo => 'Enter your email and password';
+
+  @override
+  String get almostThere => 'You are almost there!';
 }

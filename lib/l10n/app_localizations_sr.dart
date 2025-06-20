@@ -70,4 +70,16 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get confirmPassword => 'Potvrdite lozinku';
+
+  @override
+  String get successfullSignIn => 'Uspjesno ste prijavljeni';
+
+  @override
+  String get invalidSignIn => 'Neuspjela prijava';
+
+  @override
+  String get enterSingInInfo => 'Uneseite vas email i lozinku';
+
+  @override
+  String get almostThere => 'Na korak si do cilja';
 }

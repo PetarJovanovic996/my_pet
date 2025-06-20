@@ -41,5 +41,13 @@
   "passwordDontMatch": "Lozinke se ne poklapaju",
   "@passwordDontMatch": {},
     "confirmPassword": "Potvrdite lozinku",
-  "@confirmPassword": {}
+  "@confirmPassword": {},
+    "successfullSignIn": "Uspjesno ste prijavljeni",
+  "@successfullSignIn": {},
+   "invalidSignIn": "Neuspjela prijava",
+  "@invalidSignIn": {},
+  "enterSingInInfo": "Uneseite vas email i lozinku",
+  "@enterSingInInfo": {},
+   "almostThere": "Na korak si do cilja",
+  "@almostThere": {}
 }

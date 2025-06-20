@@ -41,7 +41,16 @@
   "passwordDontMatch": "Password dont match",
   "@passwordDontMatch": {},
   "confirmPassword": "Confirm your password",
-  "@confirmPassword": {}
+  "@confirmPassword": {},
+    "successfullSignIn": "You are logged in",
+  "@successfullSignIn": {},
+  "invalidSignIn": "Invalid Log In",
+  "@invalidSignIn": {},
+  "enterSingInInfo": "Enter your email and password",
+  "@enterSingInInfo": {},
+   "almostThere": "You are almost there!",
+  "@almostThere": {}
+  
 
   
 

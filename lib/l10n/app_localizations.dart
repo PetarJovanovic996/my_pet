@@ -220,6 +220,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Confirm your password'**
   String get confirmPassword;
+
+  /// No description provided for @successfullSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'You are logged in'**
+  String get successfullSignIn;
+
+  /// No description provided for @invalidSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Log In'**
+  String get invalidSignIn;
+
+  /// No description provided for @enterSingInInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email and password'**
+  String get enterSingInInfo;
+
+  /// No description provided for @almostThere.
+  ///
+  /// In en, this message translates to:
+  /// **'You are almost there!'**
+  String get almostThere;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

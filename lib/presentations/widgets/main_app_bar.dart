@@ -1,6 +1,7 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -43,7 +44,12 @@ class LogoutButton extends StatelessWidget {
         }
 
         return IconButton(
-          onPressed: () => context.read<LogOutCubit>().logOut(),
+          onPressed: () {
+            context.read<LogOutCubit>().logOut();
+            Navigator.of(
+              context,
+            ).pushReplacementNamed(Routes.welcomeViewScreen);
+          },
           icon: const Icon(Icons.logout),
         );
       },

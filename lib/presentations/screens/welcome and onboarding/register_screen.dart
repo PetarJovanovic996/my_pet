@@ -120,7 +120,7 @@ class _NameInput extends StatelessWidget {
 }
 
 class _UsernameInput extends StatelessWidget {
-  const _UsernameInput({super.key});
+  const _UsernameInput();
 
   @override
   Widget build(BuildContext context) {
@@ -233,7 +233,7 @@ class _ConfirmPasswordInput extends StatelessWidget {
 }
 
 class _RegisterButton extends StatelessWidget {
-  const _RegisterButton({super.key});
+  const _RegisterButton();
 
   @override
   Widget build(BuildContext context) {
@@ -244,10 +244,7 @@ class _RegisterButton extends StatelessWidget {
               state.isValid
                   ? () => context.read<RegisterCubit>().register()
                   : null,
-          child: Text(
-            AppLocalizations.of(context)!.register,
-            style: const TextStyle(color: Colors.black),
-          ),
+          child: Text(AppLocalizations.of(context)!.register),
         );
       },
     );
