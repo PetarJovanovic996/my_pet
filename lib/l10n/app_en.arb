@@ -15,5 +15,34 @@
    "singIn": "Sing In",
   "@singIn": {}  ,
    "register": "Register",
-  "@register": {}  
+  "@register": {}  ,
+    "successfullRegistration": "Successfull Registration",
+  "@successfullRegistration": {},
+    "invalidRegistration": "Registration Failed",
+  "@invalidRegistration": {}  ,
+    "enterUserData": "Enter user data",
+  "@enterUserData": {}  ,
+    "name": "Name",
+  "@name": {}  ,
+    "username": "Username",
+  "@username": {}  ,
+    "invalidName": "Invalid Name",
+  "@invalidName": {}  ,
+  "invalidUserName": "Invalid Username",
+  "@invalidUserName": {}  ,
+  "invalidEmail": "Invalid Email",
+  "@invalidEmail": {}  ,
+  "invalidPassword": "Invalid Password",
+  "@invalidPassword": {}  ,
+  "password": "Password",
+  "@password": {}  ,
+  "email": "Email",
+  "@email": {}  ,
+  "passwordDontMatch": "Password dont match",
+  "@passwordDontMatch": {},
+  "confirmPassword": "Confirm your password",
+  "@confirmPassword": {}
+
+  
+
 }

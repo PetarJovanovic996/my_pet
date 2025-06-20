@@ -18,7 +18,7 @@ class RegisterScreen extends StatelessWidget {
         showSignOut: false,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(18),
         child: BlocProvider(
           create: (context) => RegisterCubit(AuthenticationRepository()),
           child: const RegisterForm(),
@@ -37,38 +37,57 @@ class RegisterForm extends StatelessWidget {
       listenWhen: (previous, current) => previous.status != current.status,
       listener: (context, state) {
         if (state.status.isSuccess) {
-          ScaffoldMessenger.of(
-            context,
-          ).showSnackBar(SnackBar(content: Text('successfulRegistration')));
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(
+                AppLocalizations.of(context)!.successfullRegistration,
+              ),
+            ),
+          );
           Navigator.of(context).pushReplacementNamed(Routes.logInScreen);
         }
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                state.errorMessage ?? 'AppLocalizations.of(context)!.error',
+                state.errorMessage ??
+                    AppLocalizations.of(context)!.invalidRegistration,
               ),
             ),
           );
         }
       },
       builder: (context, state) {
-        return Column(
-          children: [
-            const _EmailInput(),
-            const SizedBox(height: 8),
-            const _PasswordInput(),
-            const SizedBox(height: 8),
-            const _ConfirmPasswordInput(),
-            const SizedBox(height: 8),
-            const _NameInput(),
-            const SizedBox(height: 8),
-            const _UsernameInput(),
-            const SizedBox(height: 16),
-            if (state.status.isInProgress) const CircularProgressIndicator(),
-            const SizedBox(height: 16),
-            const _RegisterButton(),
-          ],
+        return SafeArea(
+          child: SingleChildScrollView(
+            padding: EdgeInsets.only(bottom: 30, left: 16, right: 16, top: 30),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              spacing: 18,
+              children: [
+                Text(
+                  AppLocalizations.of(context)!.enterUserData,
+                  style: TextStyle(
+                    fontSize: 22,
+                    color: Theme.of(context).hintColor,
+                    letterSpacing: 6,
+                  ),
+                ),
+                const SizedBox(height: 16),
+
+                const _NameInput(),
+                const _UsernameInput(),
+                const _EmailInput(),
+                const _PasswordInput(),
+                const _ConfirmPasswordInput(),
+                if (state.status.isInProgress)
+                  const CircularProgressIndicator(),
+                const SizedBox(height: 16),
+                const _RegisterButton(),
+                Image.asset('assets/images/appLogo.jpg', height: 140),
+              ],
+            ),
+          ),
         );
       },
     );
@@ -76,7 +95,7 @@ class RegisterForm extends StatelessWidget {
 }
 
 class _NameInput extends StatelessWidget {
-  const _NameInput({super.key});
+  const _NameInput();
 
   @override
   Widget build(BuildContext context) {
@@ -88,10 +107,10 @@ class _NameInput extends StatelessWidget {
           onChanged: (name) => context.read<RegisterCubit>().enteredName(name),
           keyboardType: TextInputType.name,
           decoration: InputDecoration(
-            labelText: 'AppLocalizations.of(context)!.name',
+            labelText: AppLocalizations.of(context)!.name,
             errorText:
                 state.name.displayError != null
-                    ? 'AppLocalizations.of(context)!.invalidName'
+                    ? AppLocalizations.of(context)!.invalidName
                     : null,
           ),
         );
@@ -115,10 +134,10 @@ class _UsernameInput extends StatelessWidget {
                   context.read<RegisterCubit>().enteredUsername(username),
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            labelText: 'AppLocalizations.of(context)!.username',
+            labelText: AppLocalizations.of(context)!.username,
             errorText:
                 state.username.displayError != null
-                    ? 'AppLocalizations.of(context)!.invalidUsername'
+                    ? AppLocalizations.of(context)!.invalidUserName
                     : null,
           ),
         );
@@ -141,10 +160,10 @@ class _EmailInput extends StatelessWidget {
               (email) => context.read<RegisterCubit>().enteredEmail(email),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            labelText: 'AppLocalizations.of(context)!.email',
+            labelText: AppLocalizations.of(context)!.email,
             errorText:
                 state.email.displayError != null
-                    ? 'AppLocalizations.of(context)!.invalidMail'
+                    ? AppLocalizations.of(context)!.invalidEmail
                     : null,
           ),
         );
@@ -169,10 +188,10 @@ class _PasswordInput extends StatelessWidget {
                   context.read<RegisterCubit>().enteredPassword(password),
           keyboardType: TextInputType.visiblePassword,
           decoration: InputDecoration(
-            labelText: 'AppLocalizations.of(context)!.password,',
+            labelText: AppLocalizations.of(context)!.password,
             errorText:
                 state.password.displayError != null
-                    ? 'AppLocalizations.of(context)!.invalidPassword'
+                    ? AppLocalizations.of(context)!.invalidPassword
                     : null,
           ),
         );
@@ -201,10 +220,10 @@ class _ConfirmPasswordInput extends StatelessWidget {
                   .enteredConfirmedPassword(password),
           keyboardType: TextInputType.visiblePassword,
           decoration: InputDecoration(
-            labelText: 'AppLocalizations.of(context)!.confirmPassword',
+            labelText: AppLocalizations.of(context)!.confirmPassword,
             errorText:
                 state.confirmedPassword.displayError != null
-                    ? 'AppLocalizations.of(context)!.passwordDontMatch'
+                    ? AppLocalizations.of(context)!.passwordDontMatch
                     : null,
           ),
         );

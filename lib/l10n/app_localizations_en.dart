@@ -31,4 +31,43 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register => 'Register';
+
+  @override
+  String get successfullRegistration => 'Successfull Registration';
+
+  @override
+  String get invalidRegistration => 'Registration Failed';
+
+  @override
+  String get enterUserData => 'Enter user data';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get invalidName => 'Invalid Name';
+
+  @override
+  String get invalidUserName => 'Invalid Username';
+
+  @override
+  String get invalidEmail => 'Invalid Email';
+
+  @override
+  String get invalidPassword => 'Invalid Password';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordDontMatch => 'Password dont match';
+
+  @override
+  String get confirmPassword => 'Confirm your password';
 }

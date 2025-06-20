@@ -31,4 +31,43 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get register => 'Registruj se';
+
+  @override
+  String get successfullRegistration => 'Registracija uspješna';
+
+  @override
+  String get invalidRegistration => 'Registracija nije uspjela';
+
+  @override
+  String get enterUserData => 'Unesite korisničke podatke';
+
+  @override
+  String get name => 'Ime';
+
+  @override
+  String get username => 'Korisničko ime';
+
+  @override
+  String get invalidName => 'Neispravno ime';
+
+  @override
+  String get invalidUserName => 'Neispravno korisničko ime';
+
+  @override
+  String get invalidEmail => 'Neispravna email adresa';
+
+  @override
+  String get invalidPassword => 'Neispravna lozinka';
+
+  @override
+  String get password => 'Lozinka';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordDontMatch => 'Lozinke se ne poklapaju';
+
+  @override
+  String get confirmPassword => 'Potvrdite lozinku';
 }
