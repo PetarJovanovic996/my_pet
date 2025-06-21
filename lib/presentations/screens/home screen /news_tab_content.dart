@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MediaTabContent extends StatelessWidget {
-  const MediaTabContent({super.key});
+class NewsFeedContent extends StatelessWidget {
+  const NewsFeedContent({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,16 +12,19 @@ class MediaTabContent extends StatelessWidget {
           Align(
             alignment: Alignment(0, -1),
             child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [Text('add post button, + icon')],
+              children: [
+                Text('row skrolable'),
+                SizedBox(width: 12),
+                Text('clanci blogovi linkovi'),
+              ],
             ),
           ),
           Align(
-            alignment: Alignment(-0.9, -0.8),
+            alignment: Alignment.center,
             child: Column(
               mainAxisSize: MainAxisSize.min,
 
-              children: [Text('POSTS')],
+              children: [Text('statusi i reklame partnera')],
             ),
           ),
         ],

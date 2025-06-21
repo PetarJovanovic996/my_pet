@@ -2,7 +2,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/home_tab_content.dart';
+import 'package:my_pet/presentations/screens/home%20screen%20/news_tab_content.dart';
 import 'package:my_pet/presentations/screens/home%20screen%20/media_tab_content.dart';
 import 'package:my_pet/presentations/screens/home%20screen%20/profile_tab_content.dart';
 import 'package:my_pet/presentations/screens/home%20screen%20/explore_tab_content.dart';
@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
 Widget _tabContent(int index) {
   switch (index) {
     case 0:
-      return const HomeTabContent();
+      return const NewsFeedContent();
     case 1:
       return const ExloreTabContent();
     case 2:
@@ -95,6 +95,6 @@ Widget _tabContent(int index) {
       return const ProfileTabContent();
 
     default:
-      return const HomeTabContent();
+      return const NewsFeedContent();
   }
 }
