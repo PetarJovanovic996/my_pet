@@ -57,6 +57,15 @@
    "media": "Media",
   "@media": {},
    "profile": "Profil",
-  "@profile": {}
+  "@profile": {},
+
+  "newsFeedAppBarTitle": "Što ima novo?",
+  "@newsFeedAppBarTitle": {},
+  "exploreppBarTitle": "Istraži svijet oko sebe",
+  "@exploreppBarTitle": {},
+  "mediappBarTitle": "Podijeli svoju galeriju",
+  "@mediappBarTitle": {}
+
+
   
 }

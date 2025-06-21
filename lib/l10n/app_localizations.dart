@@ -268,6 +268,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Profile'**
   String get profile;
+
+  /// No description provided for @newsFeedAppBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new?'**
+  String get newsFeedAppBarTitle;
+
+  /// No description provided for @exploreppBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore the world'**
+  String get exploreppBarTitle;
+
+  /// No description provided for @mediappBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your gallery'**
+  String get mediappBarTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

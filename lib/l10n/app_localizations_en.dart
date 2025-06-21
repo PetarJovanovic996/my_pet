@@ -94,4 +94,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get profile => 'Profile';
+
+  @override
+  String get newsFeedAppBarTitle => 'What\'s new?';
+
+  @override
+  String get exploreppBarTitle => 'Explore the world';
+
+  @override
+  String get mediappBarTitle => 'Share your gallery';
 }

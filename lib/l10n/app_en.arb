@@ -57,7 +57,14 @@
    "media": "Media",
   "@media": {},
    "profile": "Profile",
-  "@profile": {}
+  "@profile": {},
+
+   "newsFeedAppBarTitle": "What's new?",
+  "@newsFeedAppBarTitle": {},
+   "exploreppBarTitle": "Explore the world",
+  "@exploreppBarTitle": {},
+   "mediappBarTitle": "Share your gallery",
+  "@mediappBarTitle": {}
   
   
 

@@ -94,4 +94,13 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get profile => 'Profil';
+
+  @override
+  String get newsFeedAppBarTitle => 'Što ima novo?';
+
+  @override
+  String get exploreppBarTitle => 'Istraži svijet oko sebe';
+
+  @override
+  String get mediappBarTitle => 'Podijeli svoju galeriju';
 }

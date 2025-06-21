@@ -1,4 +1,6 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
 import 'package:my_pet/presentations/screens/home%20screen%20/home_tab_content.dart';
 import 'package:my_pet/presentations/screens/home%20screen%20/media_tab_content.dart';
@@ -23,10 +25,27 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  String _getAppBarTitle(BuildContext context) {
+    final user = context.read<AuthenticationRepository>().currentUser;
+
+    switch (_selectedIndex) {
+      case 0:
+        return AppLocalizations.of(context)!.newsFeedAppBarTitle;
+      case 1:
+        return AppLocalizations.of(context)!.exploreppBarTitle;
+      case 2:
+        return AppLocalizations.of(context)!.mediappBarTitle;
+      case 3:
+        return '${AppLocalizations.of(context)!.hello} ${user.name!.toUpperCase()}';
+      default:
+        return AppLocalizations.of(context)!.newsFeedAppBarTitle;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: AppLocalizations.of(context)!.appName),
+      appBar: MainAppBar(title: _getAppBarTitle(context)),
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(8),
