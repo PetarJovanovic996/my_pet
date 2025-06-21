@@ -1,6 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/data/models/validation/email.dart';
 import 'package:my_pet/data/models/validation/password.dart';

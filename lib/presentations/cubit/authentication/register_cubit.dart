@@ -120,8 +120,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: state.email.value,
         password: state.password.value,
         name: state.name.value,
-
-        //TODO:naci nacin i za username!
       );
       emit(state.copyWith(status: FormzSubmissionStatus.success));
     } on RegisterWithEmailAndPasswordFailure catch (e) {

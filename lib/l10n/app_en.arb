@@ -49,7 +49,16 @@
   "enterSingInInfo": "Enter your email and password",
   "@enterSingInInfo": {},
    "almostThere": "You are almost there!",
-  "@almostThere": {}
+  "@almostThere": {},
+   "newsFeed": "News Feed",
+  "@newsFeed": {},
+   "explore": "Explore",
+  "@explore": {},
+   "media": "Media",
+  "@media": {},
+   "profile": "Profile",
+  "@profile": {}
+  
   
 
   

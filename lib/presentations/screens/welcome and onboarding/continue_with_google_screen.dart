@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
+//TODO: Implement this
+
 class ContinueWithGoogleScreen extends StatelessWidget {
   const ContinueWithGoogleScreen({super.key});
 
@@ -11,5 +13,3 @@ class ContinueWithGoogleScreen extends StatelessWidget {
     );
   }
 }
-
-//TODO: Implement this

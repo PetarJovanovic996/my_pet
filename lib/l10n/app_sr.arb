@@ -49,5 +49,14 @@
   "enterSingInInfo": "Uneseite vas email i lozinku",
   "@enterSingInInfo": {},
    "almostThere": "Na korak si do cilja",
-  "@almostThere": {}
+  "@almostThere": {},
+  "newsFeed": "Novosti",
+  "@newsFeed": {},
+   "explore": "Istrazi",
+  "@explore": {},
+   "media": "Media",
+  "@media": {},
+   "profile": "Profil",
+  "@profile": {}
+  
 }

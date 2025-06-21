@@ -244,6 +244,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You are almost there!'**
   String get almostThere;
+
+  /// No description provided for @newsFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'News Feed'**
+  String get newsFeed;
+
+  /// No description provided for @explore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore'**
+  String get explore;
+
+  /// No description provided for @media.
+  ///
+  /// In en, this message translates to:
+  /// **'Media'**
+  String get media;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

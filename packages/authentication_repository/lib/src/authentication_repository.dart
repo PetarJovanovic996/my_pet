@@ -5,8 +5,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 
-// TODO: implementirati mogucnot logIna uz pomoc Username-a
-
 class RegisterWithEmailAndPasswordFailure implements Exception {
   const RegisterWithEmailAndPasswordFailure([
     this.message = 'Please check and update your data',

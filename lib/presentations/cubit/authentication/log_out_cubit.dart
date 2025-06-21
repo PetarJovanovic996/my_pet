@@ -1,6 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:bloc/bloc.dart';
-import 'package:equatable/src/equatable.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'log_out_state.dart';
 

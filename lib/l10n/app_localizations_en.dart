@@ -82,4 +82,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get almostThere => 'You are almost there!';
+
+  @override
+  String get newsFeed => 'News Feed';
+
+  @override
+  String get explore => 'Explore';
+
+  @override
+  String get media => 'Media';
+
+  @override
+  String get profile => 'Profile';
 }

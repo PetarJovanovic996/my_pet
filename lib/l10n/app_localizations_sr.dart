@@ -82,4 +82,16 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get almostThere => 'Na korak si do cilja';
+
+  @override
+  String get newsFeed => 'Novosti';
+
+  @override
+  String get explore => 'Istrazi';
+
+  @override
+  String get media => 'Media';
+
+  @override
+  String get profile => 'Profil';
 }
