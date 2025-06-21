@@ -106,12 +106,14 @@ class AuthenticationRepository {
   Future<void> register({
     required String email,
     required String password,
+    required String name,
   }) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      await _firebaseAuth.currentUser?.updateDisplayName(name);
       await _firebaseAuth.signOut();
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw RegisterWithEmailAndPasswordFailure.fromCode(e.code);
