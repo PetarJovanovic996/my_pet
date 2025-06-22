@@ -1,4 +1,8 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({super.key, required this.title, this.showSignOut = true});
@@ -8,16 +12,15 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Row(
-        children: [
-          Text(title),
-          const Spacer(flex: 8),
-          const Spacer(flex: 8),
-          const LogoutButton(),
-          Image.asset('assets/images/logo.jpg', height: 45),
-          const SizedBox.shrink(),
-        ],
-      ),
+      title: Text(title),
+      actions: [
+        const LogoutButton(),
+        SizedBox(width: 12),
+        Padding(
+          padding: const EdgeInsets.only(right: 12.0),
+          child: Image.asset('assets/images/appLogo.jpg', height: 40),
+        ),
+      ],
     );
   }
 
@@ -31,6 +34,26 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(onPressed: () {}, icon: Icon(Icons.logout));
+    return StreamBuilder(
+      stream: context.read<AuthenticationRepository>().user,
+      builder: (context, snapshot) {
+        bool isLoggedIn =
+            snapshot.hasData ? snapshot.data != User.empty : false;
+
+        if (!isLoggedIn) {
+          return Container();
+        }
+
+        return IconButton(
+          onPressed: () {
+            context.read<LogOutCubit>().logOut();
+            Navigator.of(
+              context,
+            ).pushReplacementNamed(Routes.welcomeViewScreen);
+          },
+          icon: const Icon(Icons.logout),
+        );
+      },
+    );
   }
 }

@@ -31,4 +31,76 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get register => 'Register';
+
+  @override
+  String get successfullRegistration => 'Successfull Registration';
+
+  @override
+  String get invalidRegistration => 'Registration Failed';
+
+  @override
+  String get enterUserData => 'Enter user data';
+
+  @override
+  String get name => 'Name';
+
+  @override
+  String get username => 'Username';
+
+  @override
+  String get invalidName => 'Invalid Name';
+
+  @override
+  String get invalidUserName => 'Invalid Username';
+
+  @override
+  String get invalidEmail => 'Invalid Email';
+
+  @override
+  String get invalidPassword => 'Invalid Password';
+
+  @override
+  String get password => 'Password';
+
+  @override
+  String get email => 'Email';
+
+  @override
+  String get passwordDontMatch => 'Password dont match';
+
+  @override
+  String get confirmPassword => 'Confirm your password';
+
+  @override
+  String get successfullSignIn => 'You are logged in';
+
+  @override
+  String get invalidSignIn => 'Invalid Log In';
+
+  @override
+  String get enterSingInInfo => 'Enter your email and password';
+
+  @override
+  String get almostThere => 'You are almost there!';
+
+  @override
+  String get newsFeed => 'News Feed';
+
+  @override
+  String get explore => 'Explore';
+
+  @override
+  String get media => 'Media';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get newsFeedAppBarTitle => 'What\'s new?';
+
+  @override
+  String get exploreppBarTitle => 'Explore the world';
+
+  @override
+  String get mediappBarTitle => 'Share your gallery';
 }

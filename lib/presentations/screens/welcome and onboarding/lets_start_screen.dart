@@ -16,7 +16,10 @@ class LetsStartScreen extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset('assets/images/hello.jpg', fit: BoxFit.cover),
+            child: Image.asset(
+              'assets/images/appMainPic.jpg',
+              fit: BoxFit.cover,
+            ),
           ),
 
           Align(
@@ -74,7 +77,7 @@ class LetsStartScreen extends StatelessWidget {
                     ).pushNamed(Routes.continueWithFacebookScreen);
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color.fromARGB(217, 38, 38, 224),
+                    backgroundColor: const Color.fromARGB(209, 38, 38, 224),
                     padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
                   ),
                   child: Row(

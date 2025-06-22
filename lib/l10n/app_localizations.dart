@@ -142,6 +142,150 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Register'**
   String get register;
+
+  /// No description provided for @successfullRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Successfull Registration'**
+  String get successfullRegistration;
+
+  /// No description provided for @invalidRegistration.
+  ///
+  /// In en, this message translates to:
+  /// **'Registration Failed'**
+  String get invalidRegistration;
+
+  /// No description provided for @enterUserData.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter user data'**
+  String get enterUserData;
+
+  /// No description provided for @name.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get name;
+
+  /// No description provided for @username.
+  ///
+  /// In en, this message translates to:
+  /// **'Username'**
+  String get username;
+
+  /// No description provided for @invalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Name'**
+  String get invalidName;
+
+  /// No description provided for @invalidUserName.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Username'**
+  String get invalidUserName;
+
+  /// No description provided for @invalidEmail.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Email'**
+  String get invalidEmail;
+
+  /// No description provided for @invalidPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Password'**
+  String get invalidPassword;
+
+  /// No description provided for @password.
+  ///
+  /// In en, this message translates to:
+  /// **'Password'**
+  String get password;
+
+  /// No description provided for @email.
+  ///
+  /// In en, this message translates to:
+  /// **'Email'**
+  String get email;
+
+  /// No description provided for @passwordDontMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Password dont match'**
+  String get passwordDontMatch;
+
+  /// No description provided for @confirmPassword.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm your password'**
+  String get confirmPassword;
+
+  /// No description provided for @successfullSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'You are logged in'**
+  String get successfullSignIn;
+
+  /// No description provided for @invalidSignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid Log In'**
+  String get invalidSignIn;
+
+  /// No description provided for @enterSingInInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your email and password'**
+  String get enterSingInInfo;
+
+  /// No description provided for @almostThere.
+  ///
+  /// In en, this message translates to:
+  /// **'You are almost there!'**
+  String get almostThere;
+
+  /// No description provided for @newsFeed.
+  ///
+  /// In en, this message translates to:
+  /// **'News Feed'**
+  String get newsFeed;
+
+  /// No description provided for @explore.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore'**
+  String get explore;
+
+  /// No description provided for @media.
+  ///
+  /// In en, this message translates to:
+  /// **'Media'**
+  String get media;
+
+  /// No description provided for @profile.
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// No description provided for @newsFeedAppBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s new?'**
+  String get newsFeedAppBarTitle;
+
+  /// No description provided for @exploreppBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore the world'**
+  String get exploreppBarTitle;
+
+  /// No description provided for @mediappBarTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Share your gallery'**
+  String get mediappBarTitle;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

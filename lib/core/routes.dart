@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_pet/presentations/screens/home_screen.dart';
+import 'package:my_pet/presentations/screens/home%20screen%20/home_screen.dart';
+import 'package:my_pet/presentations/screens/settings_screen.dart';
+import 'package:my_pet/presentations/screens/user_info_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_facebook_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_google_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/lets_start_screen.dart';
-import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/log_in_screen.dart';
+import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/sign_in_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/register_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/welcome_view_screen.dart';
 
@@ -17,6 +19,8 @@ class Routes {
   static const String continueWithFacebookScreen =
       'continue-with-facebook-screen';
   static const String homeScreen = 'home-screen';
+  static const String settingsScreen = 'settings-screen';
+  static const String userInfoScreen = 'user-info-screen';
 }
 
 class MyRouter {
@@ -27,12 +31,15 @@ class MyRouter {
           (Routes.welcomeViewScreen) => const WelcomeViewScreen(),
           (Routes.letsStartScreen) => const LetsStartScreen(),
 
-          (Routes.logInScreen) => const SingInScreen(),
+          (Routes.logInScreen) => const SignInScreen(),
           (Routes.registerScreen) => const RegisterScreen(),
           (Routes.continueWithFacebookScreen) =>
             const ContinueWithFacebookScreen(),
 
           (Routes.continueWithGoogleScreen) => const ContinueWithGoogleScreen(),
+          (Routes.settingsScreen) => const SettingsScreen(),
+
+          (Routes.userInfoScreen) => const UserInfoScreen(),
 
           (Routes.homeScreen) => const HomeScreen(),
 
