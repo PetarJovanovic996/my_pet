@@ -41,7 +41,7 @@ class ProfileTabContent extends StatelessWidget {
                   icon: Icon(
                     Icons.settings,
                     color: Theme.of(context).primaryColor,
-                    size: 30,
+                    size: 40,
                   ),
                 ),
                 Text(AppLocalizations.of(context)!.settings),

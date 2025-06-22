@@ -2,10 +2,10 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/news_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/media_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/profile_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/explore_tab_content.dart';
+import 'package:my_pet/presentations/screens/news_feed_tab/news_tab_content.dart';
+import 'package:my_pet/presentations/screens/media_tab/media_tab_content.dart';
+import 'package:my_pet/presentations/screens/profile_tab/profile_tab_content.dart';
+import 'package:my_pet/presentations/screens/explore_tab/explore_tab_content.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
