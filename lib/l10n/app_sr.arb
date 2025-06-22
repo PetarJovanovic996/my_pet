@@ -64,7 +64,28 @@
   "exploreppBarTitle": "Istraži svijet oko sebe",
   "@exploreppBarTitle": {},
   "mediappBarTitle": "Podijeli svoju galeriju",
-  "@mediappBarTitle": {}
+  "@mediappBarTitle": {},
+
+
+    "editProfile": "Uredi Profil",
+  "@editProfile": {},
+
+
+  "settings": "Podesavanja",
+  "@settings": {},
+  
+  "changeLanguage": "Promijeni jezik",
+  "@changeLanguage": {},
+  "changeTheme": "Promijeni temu",
+  "@changeTheme": {},
+  "light": "Svijetla",
+  "@light": {},
+  "dark": "Tamna",
+  "@dark": {},
+  "logOut": "Odjavi se",
+  "@logOut": {},
+"deleteAccount": "Obrisi nalog",
+  "@deleteAccount": {}
 
 
   

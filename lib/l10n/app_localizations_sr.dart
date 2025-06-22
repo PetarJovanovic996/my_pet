@@ -103,4 +103,28 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get mediappBarTitle => 'Podijeli svoju galeriju';
+
+  @override
+  String get editProfile => 'Uredi Profil';
+
+  @override
+  String get settings => 'Podesavanja';
+
+  @override
+  String get changeLanguage => 'Promijeni jezik';
+
+  @override
+  String get changeTheme => 'Promijeni temu';
+
+  @override
+  String get light => 'Svijetla';
+
+  @override
+  String get dark => 'Tamna';
+
+  @override
+  String get logOut => 'Odjavi se';
+
+  @override
+  String get deleteAccount => 'Obrisi nalog';
 }

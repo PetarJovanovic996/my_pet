@@ -103,4 +103,28 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get mediappBarTitle => 'Share your gallery';
+
+  @override
+  String get editProfile => 'Edit Profile';
+
+  @override
+  String get settings => 'Settings';
+
+  @override
+  String get changeLanguage => 'Change Language';
+
+  @override
+  String get changeTheme => 'Change Theme';
+
+  @override
+  String get light => 'Light';
+
+  @override
+  String get dark => 'Dark';
+
+  @override
+  String get logOut => 'Log Out';
+
+  @override
+  String get deleteAccount => 'Delete Account';
 }

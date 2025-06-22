@@ -29,7 +29,6 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class LogoutButton extends StatelessWidget {
-  @visibleForTesting
   const LogoutButton({super.key});
 
   @override

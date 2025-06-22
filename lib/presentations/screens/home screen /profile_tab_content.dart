@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/l10n/app_localizations.dart';
 
 class ProfileTabContent extends StatelessWidget {
   const ProfileTabContent({super.key});
@@ -10,19 +12,39 @@ class ProfileTabContent extends StatelessWidget {
       child: Stack(
         children: [
           Align(
-            alignment: Alignment(0, -0.9),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            alignment: Alignment(-1, -0.9),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Profile pic'),
-                    Text('button to see profile info'),
-                  ],
+                //TODO: dodati sliku user/a
+                Icon(Icons.person, size: 80),
+                SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(Routes.userInfoScreen);
+                  },
+                  label: Text(AppLocalizations.of(context)!.editProfile),
+                  icon: Icon(Icons.edit),
                 ),
-                Text('settings button'),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment(0.9, -0.9),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    Navigator.of(context).pushNamed(Routes.settingsScreen);
+                  },
+                  icon: Icon(
+                    Icons.settings,
+                    color: Theme.of(context).primaryColor,
+                    size: 30,
+                  ),
+                ),
+                Text(AppLocalizations.of(context)!.settings),
               ],
             ),
           ),

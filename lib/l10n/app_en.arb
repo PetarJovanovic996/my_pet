@@ -64,8 +64,28 @@
    "exploreppBarTitle": "Explore the world",
   "@exploreppBarTitle": {},
    "mediappBarTitle": "Share your gallery",
-  "@mediappBarTitle": {}
+  "@mediappBarTitle": {},
+
+
+   "editProfile": "Edit Profile",
+  "@editProfile": {},
+
+  "settings": "Settings",
+  "@settings": {},
+  "changeLanguage": "Change Language",
+  "@changeLanguage": {},
+  "changeTheme": "Change Theme",
+  "@changeTheme": {},
+  "light": "Light",
+  "@light": {},
+  "dark": "Dark",
+  "@dark": {},
+  "logOut": "Log Out",
+  "@logOut": {},
+"deleteAccount": "Delete Account",
+  "@deleteAccount": {}
   
+
   
 
   
