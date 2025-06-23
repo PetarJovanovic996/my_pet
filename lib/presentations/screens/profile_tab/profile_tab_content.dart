@@ -17,11 +17,12 @@ class ProfileTabContent extends StatelessWidget {
               mainAxisSize: MainAxisSize.min,
               children: [
                 //TODO: dodati sliku user/a
+                //TODO: kroz edit
                 Icon(Icons.person, size: 80),
                 SizedBox(height: 8),
                 ElevatedButton.icon(
                   onPressed: () {
-                    Navigator.of(context).pushNamed(Routes.userInfoScreen);
+                    Navigator.of(context).pushNamed(Routes.editProfileScreen);
                   },
                   label: Text(AppLocalizations.of(context)!.editProfile),
                   icon: Icon(Icons.edit),

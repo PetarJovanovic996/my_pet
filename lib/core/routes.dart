@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pet/presentations/screens/home_screen.dart';
 import 'package:my_pet/presentations/screens/profile_tab/settings_screen.dart';
-import 'package:my_pet/presentations/screens/profile_tab/user_info_screen.dart';
+import 'package:my_pet/presentations/screens/profile_tab/edit_profile_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_facebook_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_google_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/lets_start_screen.dart';
@@ -20,7 +20,7 @@ class Routes {
       'continue-with-facebook-screen';
   static const String homeScreen = 'home-screen';
   static const String settingsScreen = 'settings-screen';
-  static const String userInfoScreen = 'user-info-screen';
+  static const String editProfileScreen = 'edit-profile-screen';
 }
 
 class MyRouter {
@@ -39,7 +39,7 @@ class MyRouter {
           (Routes.continueWithGoogleScreen) => const ContinueWithGoogleScreen(),
           (Routes.settingsScreen) => const SettingsScreen(),
 
-          (Routes.userInfoScreen) => const UserInfoScreen(),
+          (Routes.editProfileScreen) => const EditProfileScreen(),
 
           (Routes.homeScreen) => const HomeScreen(),
 
