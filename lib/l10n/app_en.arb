@@ -83,7 +83,15 @@
   "logOut": "Log Out",
   "@logOut": {},
 "deleteAccount": "Delete Account",
-  "@deleteAccount": {}
+  "@deleteAccount": {},
+
+  "confirmDeleteAccount": "Are you sure? This will permanently delete your account.",
+  "@confirmDeleteAccount": {},
+"cancel": "Cancel",
+  "@cancel": {},
+  "confirm": "Confirm",
+  "@confirm": {}
+
   
 
   

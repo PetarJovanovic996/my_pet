@@ -127,4 +127,13 @@ class AppLocalizationsSr extends AppLocalizations {
 
   @override
   String get deleteAccount => 'Obrisi nalog';
+
+  @override
+  String get confirmDeleteAccount => 'Da li ste sigurni? Ovo ce trajno ukloniti vas nalog';
+
+  @override
+  String get cancel => 'Ponisti';
+
+  @override
+  String get confirm => 'OK';
 }

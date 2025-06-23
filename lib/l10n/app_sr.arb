@@ -85,7 +85,14 @@
   "logOut": "Odjavi se",
   "@logOut": {},
 "deleteAccount": "Obrisi nalog",
-  "@deleteAccount": {}
+  "@deleteAccount": {},
+
+   "confirmDeleteAccount": "Da li ste sigurni? Ovo ce trajno ukloniti vas nalog",
+  "@confirmDeleteAccount": {},
+"cancel": "Ponisti",
+  "@cancel": {},
+  "confirm": "OK",
+  "@confirm": {}
 
 
   

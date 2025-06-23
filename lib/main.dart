@@ -11,7 +11,8 @@ import 'package:my_pet/core/firebase_options.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
-import 'package:my_pet/presentations/cubit/theme/change_theme_cubit.dart';
+import 'package:my_pet/presentations/cubit/change_theme/change_theme_cubit.dart';
+import 'package:my_pet/presentations/cubit/delete_account/delete_account_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
 
@@ -41,7 +42,11 @@ Future<void> main() async {
           create: (context) => LanguageCubit(sharedPreferences: prefs),
         ),
         BlocProvider(create: (context) => ChangeThemeCubit()),
+        BlocProvider(
+          create: (context) => DeleteAccountCubit(AuthenticationRepository()),
+        ),
       ],
+
       child: MyApp(
         authenticationRepository: authenticationRepository,
         isLoggedIn: isLoggedIn,
