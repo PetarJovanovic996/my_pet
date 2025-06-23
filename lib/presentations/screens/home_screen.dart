@@ -28,6 +28,12 @@ class _HomeScreenState extends State<HomeScreen> {
   String _getAppBarTitle(BuildContext context) {
     final user = context.read<AuthenticationRepository>().currentUser;
 
+    final name = user.name;
+    final capitalizedName =
+        name != null && name.isNotEmpty
+            ? name[0].toUpperCase() + name.substring(1).toLowerCase()
+            : '';
+
     switch (_selectedIndex) {
       case 0:
         return AppLocalizations.of(context)!.newsFeedAppBarTitle;
@@ -36,7 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 2:
         return AppLocalizations.of(context)!.mediappBarTitle;
       case 3:
-        return '${AppLocalizations.of(context)!.hello} ${user.name!.toUpperCase()}';
+        return '${AppLocalizations.of(context)!.hello} $capitalizedName';
       default:
         return AppLocalizations.of(context)!.newsFeedAppBarTitle;
     }

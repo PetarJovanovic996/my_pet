@@ -15,13 +15,13 @@ class AppLocalizationsSr extends AppLocalizations {
   String get welcome => 'Dobrodošli u aplikaciju!';
 
   @override
-  String get welcomeButton => 'Zapocni';
+  String get welcomeButton => 'Započni';
 
   @override
   String get appName => 'MY PET';
 
   @override
-  String get welcomeViewMessage => 'ZA VAS I VASEG PRIJATELJA';
+  String get welcomeViewMessage => 'ZA VAS I VAŠEG PRIJATELJA';
 
   @override
   String get singInORregister => 'Registruj se / Prijavi se';
@@ -72,31 +72,31 @@ class AppLocalizationsSr extends AppLocalizations {
   String get confirmPassword => 'Potvrdite lozinku';
 
   @override
-  String get successfullSignIn => 'Uspjesno ste prijavljeni';
+  String get successfullSignIn => 'Uspješno ste prijavljeni';
 
   @override
   String get invalidSignIn => 'Neuspjela prijava';
 
   @override
-  String get enterSingInInfo => 'Uneseite vas email i lozinku';
+  String get enterSingInInfo => 'Unesite vaš email i lozinku';
 
   @override
-  String get almostThere => 'Na korak si do cilja';
+  String get almostThere => 'Na korak ste do cilja';
 
   @override
   String get newsFeed => 'Novosti';
 
   @override
-  String get explore => 'Istrazi';
+  String get explore => 'Istraži';
 
   @override
-  String get media => 'Media';
+  String get media => 'Medija';
 
   @override
   String get profile => 'Profil';
 
   @override
-  String get newsFeedAppBarTitle => 'Što ima novo?';
+  String get newsFeedAppBarTitle => 'Šta ima novo?';
 
   @override
   String get exploreppBarTitle => 'Istraži svijet oko sebe';
@@ -105,10 +105,10 @@ class AppLocalizationsSr extends AppLocalizations {
   String get mediappBarTitle => 'Podijeli svoju galeriju';
 
   @override
-  String get editProfile => 'Uredi Profil';
+  String get editProfile => 'Uredi profil';
 
   @override
-  String get settings => 'Podesavanja';
+  String get settings => 'Podešavanja';
 
   @override
   String get changeLanguage => 'Promijeni jezik';
@@ -126,13 +126,13 @@ class AppLocalizationsSr extends AppLocalizations {
   String get logOut => 'Odjavi se';
 
   @override
-  String get deleteAccount => 'Obrisi nalog';
+  String get deleteAccount => 'Obriši nalog';
 
   @override
-  String get confirmDeleteAccount => 'Da li ste sigurni? Ovo ce trajno ukloniti vas nalog';
+  String get confirmDeleteAccount => 'Da li ste sigurni? Ovo će trajno ukloniti vaš nalog';
 
   @override
-  String get cancel => 'Ponisti';
+  String get cancel => 'Poništi';
 
   @override
   String get confirm => 'OK';
