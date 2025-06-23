@@ -11,6 +11,7 @@ import 'package:my_pet/core/firebase_options.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
+import 'package:my_pet/presentations/cubit/theme/change_theme_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
 
@@ -39,6 +40,7 @@ Future<void> main() async {
         BlocProvider(
           create: (context) => LanguageCubit(sharedPreferences: prefs),
         ),
+        BlocProvider(create: (context) => ChangeThemeCubit()),
       ],
       child: MyApp(
         authenticationRepository: authenticationRepository,
@@ -63,29 +65,34 @@ class MyApp extends StatelessWidget {
     return RepositoryProvider.value(
       value: _authenticationRepository,
       child: BlocBuilder<LanguageCubit, LanguageState>(
-        builder: (context, state) {
-          return MaterialApp(
-            locale: state.locale,
-            localizationsDelegates: [
-              AppLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-            ],
-            supportedLocales:
-                Language.supportedLanguages
-                    .map((language) => language.locale)
-                    .toList(),
+        builder: (context, languageState) {
+          return BlocBuilder<ChangeThemeCubit, ChangeThemeState>(
+            builder: (context, themeState) {
+              return MaterialApp(
+                locale: languageState.locale,
+                localizationsDelegates: [
+                  AppLocalizations.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                ],
+                supportedLocales:
+                    Language.supportedLanguages
+                        .map((language) => language.locale)
+                        .toList(),
 
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: ThemeMode.system,
+                theme:
+                    themeState.appTheme == MyThemes.light
+                        ? AppTheme.lightTheme
+                        : AppTheme.darkTheme,
 
-            debugShowCheckedModeBanner: false,
-            title: 'My Pet',
-            initialRoute:
-                isLoggedIn ? Routes.homeScreen : Routes.welcomeViewScreen,
-            onGenerateRoute: MyRouter.onGenerateRoute,
+                debugShowCheckedModeBanner: false,
+                title: 'My Pet',
+                initialRoute:
+                    isLoggedIn ? Routes.homeScreen : Routes.welcomeViewScreen,
+                onGenerateRoute: MyRouter.onGenerateRoute,
+              );
+            },
           );
         },
       ),

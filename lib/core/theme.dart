@@ -62,7 +62,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      primaryColor: secondaryColor,
+      primaryColor: const Color.fromARGB(255, 0, 0, 0),
       scaffoldBackgroundColor: primaryColor,
       appBarTheme: const AppBarTheme(
         backgroundColor: primaryColor,

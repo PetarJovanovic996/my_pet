@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
+import 'package:my_pet/presentations/cubit/theme/change_theme_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
 
@@ -37,6 +38,7 @@ class SettingsScreen extends StatelessWidget {
                       onPressed: () {
                         context.read<LanguageCubit>().changeLanguage('sr');
                       },
+
                       child: Text(
                         'SRP',
                         style: TextStyle(
@@ -47,6 +49,7 @@ class SettingsScreen extends StatelessWidget {
                         ),
                       ),
                     ),
+
                     TextButton(
                       onPressed: () {
                         context.read<LanguageCubit>().changeLanguage('en');
@@ -83,14 +86,17 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {}, //TODO: implementirati toogletheme
+                  onPressed: () {
+                    context.read<ChangeThemeCubit>().toggleTheme();
+                  },
 
                   icon: Icon(
                     Icons.lightbulb_circle,
                     size: 32,
-                    color: Theme.of(context).primaryColor,
-                    //TODO: color primary ako je dark
-                    //Color grey ako je light
+                    color:
+                        Theme.of(context).brightness == Brightness.light
+                            ? Theme.of(context).primaryColor
+                            : Colors.white,
                   ),
                 ),
               ],
@@ -142,7 +148,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 IconButton(
-                  onPressed: () {}, //TODO: delete account to implement
+                  onPressed: () {},
                   icon: Icon(
                     Icons.delete_forever,
                     color: Colors.grey,
