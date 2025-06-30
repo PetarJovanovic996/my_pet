@@ -5,8 +5,8 @@ class ExloreTabContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
+    return const Padding(
+      padding: EdgeInsets.all(8.0),
       child: Stack(
         children: [
           Align(alignment: Alignment(0, -1), child: Text('MAPA')),

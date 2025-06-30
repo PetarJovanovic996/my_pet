@@ -4,12 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/data/models/validation/email.dart';
 import 'package:my_pet/data/models/validation/password.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
 
 part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
-  SignInCubit(this._authenticationRepository) : super(SignInState());
+  SignInCubit(this._authenticationRepository) : super(const SignInState());
 
   final AuthenticationRepository _authenticationRepository;
 

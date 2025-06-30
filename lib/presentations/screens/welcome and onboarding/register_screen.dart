@@ -60,7 +60,12 @@ class RegisterForm extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(bottom: 30, left: 16, right: 16, top: 30),
+            padding: const EdgeInsets.only(
+              bottom: 30,
+              left: 16,
+              right: 16,
+              top: 30,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: 18,

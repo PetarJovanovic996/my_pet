@@ -41,7 +41,7 @@ class AppTheme {
       ),
       dropdownMenuTheme: const DropdownMenuThemeData(
         textStyle: TextStyle(color: primaryColor),
-        menuStyle: const MenuStyle(
+        menuStyle: MenuStyle(
           backgroundColor: WidgetStatePropertyAll(secondaryColor),
         ),
       ),

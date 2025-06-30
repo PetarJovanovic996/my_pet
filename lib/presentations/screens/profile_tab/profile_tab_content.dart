@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/l10n/app_localizations.dart';
@@ -60,8 +58,8 @@ class ProfileTabContent extends StatelessWidget {
           //     itemCount: 50,
           //   ),
           // ),
-          Text('My posts'),
-          Text('POSTS'),
+          const Text('My posts'),
+          const Text('POSTS'),
         ],
       ),
     );

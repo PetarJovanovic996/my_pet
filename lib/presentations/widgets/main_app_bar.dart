@@ -15,7 +15,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(title),
       actions: [
         const LogoutButton(),
-        SizedBox(width: 12),
+        const SizedBox(width: 12),
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
           child: Image.asset('assets/images/appLogo.jpg', height: 40),
@@ -42,14 +42,26 @@ class LogoutButton extends StatelessWidget {
           if (state is LogOutCompleted) {
             ScaffoldMessenger.of(context)
               ..hideCurrentSnackBar()
-              ..showSnackBar(SnackBar(content: Text('Successfull logout!')));
+              ..showSnackBar(
+                const SnackBar(content: Text('Successfull logout!')),
+              );
+            Navigator.of(
+              context,
+            ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
+          }
+          if (state is LogOutLoading) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(const SnackBar(content: Text('Logging out')));
             Navigator.of(
               context,
             ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
           }
 
           if (state is LogOutErrorState) {
-            // TODO: Prikazati korisniku da je nesto poslo po zlu
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(const SnackBar(content: Text('Logout Error!')));
           }
         },
         child: StreamBuilder(
