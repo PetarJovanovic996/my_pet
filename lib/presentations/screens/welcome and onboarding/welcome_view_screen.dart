@@ -8,7 +8,7 @@ class WelcomeViewScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const WelcomeViewWrapper(
-      children: [WelcomeViewAppLogo(), WelcomeViewActionButtons()],
+      children: [WelcomeViewAppName(), WelcomeViewActionButtons()],
     );
   }
 }
@@ -28,6 +28,7 @@ class WelcomeViewWrapper extends StatelessWidget {
           image: DecorationImage(
             // TODO: pub.dev/flutter_gen package dodati za assete
             // TODO: Istraziti lokator za prevode iz MyTurna, odnosno [translations] u [locator.dart]
+            //TODO: srediti sve prevode - (Hard code text)
             image: AssetImage('assets/images/appMainPic.jpg'),
           ),
         ),
@@ -37,8 +38,9 @@ class WelcomeViewWrapper extends StatelessWidget {
   }
 }
 
-class WelcomeViewAppLogo extends StatelessWidget {
-  const WelcomeViewAppLogo({super.key});
+class WelcomeViewAppName extends StatelessWidget {
+  @visibleForTesting
+  const WelcomeViewAppName({super.key});
 
   @override
   Widget build(BuildContext context) {

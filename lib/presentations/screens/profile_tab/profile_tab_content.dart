@@ -46,7 +46,7 @@ class ProfileTabContent extends StatelessWidget {
               ),
             ],
           ),
-          // const SizedBox(height: 24),
+          const SizedBox(height: 24),
           // Expanded(
           //   child: ListView.separated(
           //     separatorBuilder: (_, __) => SizedBox(height: 12),
