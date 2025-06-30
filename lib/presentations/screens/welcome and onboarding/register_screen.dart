@@ -44,7 +44,7 @@ class RegisterForm extends StatelessWidget {
               ),
             ),
           );
-          Navigator.of(context).pushReplacementNamed(Routes.logInScreen);
+          Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
         }
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(

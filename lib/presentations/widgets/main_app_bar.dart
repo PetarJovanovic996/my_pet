@@ -34,26 +34,41 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: context.read<AuthenticationRepository>().user,
-      builder: (context, snapshot) {
-        bool isLoggedIn =
-            snapshot.hasData ? snapshot.data != User.empty : false;
-
-        if (!isLoggedIn) {
-          return Container();
-        }
-
-        return IconButton(
-          onPressed: () {
-            context.read<LogOutCubit>().logOut();
+    return BlocProvider(
+      create:
+          (context) => LogOutCubit(context.read<AuthenticationRepository>()),
+      child: BlocListener<LogOutCubit, LogOutState>(
+        listener: (context, state) {
+          if (state is LogOutCompleted) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(SnackBar(content: Text('Successfull logout!')));
             Navigator.of(
               context,
-            ).pushReplacementNamed(Routes.welcomeViewScreen);
+            ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
+          }
+
+          if (state is LogOutErrorState) {
+            // TODO: Prikazati korisniku da je nesto poslo po zlu
+          }
+        },
+        child: StreamBuilder(
+          stream: context.read<AuthenticationRepository>().user,
+          builder: (context, snapshot) {
+            bool isLoggedIn =
+                snapshot.hasData ? snapshot.data != User.empty : false;
+
+            if (!isLoggedIn) {
+              return Container();
+            }
+
+            return IconButton(
+              onPressed: () => context.read<LogOutCubit>().logOut(),
+              icon: const Icon(Icons.logout),
+            );
           },
-          icon: const Icon(Icons.logout),
-        );
-      },
+        ),
+      ),
     );
   }
 }

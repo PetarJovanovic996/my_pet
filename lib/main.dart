@@ -36,15 +36,9 @@ Future<void> main() async {
     MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => LogOutCubit(authenticationRepository),
-        ),
-        BlocProvider(
           create: (context) => LanguageCubit(sharedPreferences: prefs),
         ),
         BlocProvider(create: (context) => ChangeThemeCubit()),
-        BlocProvider(
-          create: (context) => DeleteAccountCubit(AuthenticationRepository()),
-        ),
       ],
 
       child: MyApp(

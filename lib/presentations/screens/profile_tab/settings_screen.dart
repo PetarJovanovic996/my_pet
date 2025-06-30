@@ -1,3 +1,4 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/routes.dart';
@@ -12,26 +13,25 @@ class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(title: AppLocalizations.of(context)!.settings),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          BlocBuilder<LanguageCubit, LanguageState>(
-            builder: (context, state) {
-              final languageCode = state.locale.languageCode;
-              final isSerbian = languageCode == 'sr';
-              return _ChangeLanguageSettings(isSerbian: isSerbian);
-            },
-          ),
-          Divider(),
-          _ChangeThemeSettings(),
-          Divider(),
-          _LogOutSettings(),
-          Divider(),
-          _DeleteAccountSettings(),
-          Divider(),
-        ],
+    return BlocProvider(
+      create:
+          (context) =>
+              DeleteAccountCubit(context.read<AuthenticationRepository>()),
+      child: Scaffold(
+        appBar: MainAppBar(title: AppLocalizations.of(context)!.settings),
+        body: ListView(
+          padding: const EdgeInsets.all(16),
+          children: const [
+            _ChangeLanguageSettings(),
+            Divider(),
+            _ChangeThemeSettings(),
+            Divider(),
+            _LogOutSettings(),
+            Divider(),
+            _DeleteAccountSettings(),
+            Divider(),
+          ],
+        ),
       ),
     );
   }
@@ -58,7 +58,7 @@ class _DeleteAccountSettings extends StatelessWidget {
         if (state is DeleteAccountError) {
           ScaffoldMessenger.of(
             context,
-          ).showSnackBar(SnackBar(content: Text('Recent logIn needed')));
+          ).showSnackBar(const SnackBar(content: Text('Recent logIn needed')));
         }
       },
       child: Padding(
@@ -189,48 +189,61 @@ class _ChangeThemeSettings extends StatelessWidget {
 }
 
 class _ChangeLanguageSettings extends StatelessWidget {
-  const _ChangeLanguageSettings({required this.isSerbian});
-
-  final bool isSerbian;
+  const _ChangeLanguageSettings();
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [
-          Expanded(
-            child: Text(
-              AppLocalizations.of(context)!.changeLanguage,
-              style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              context.read<LanguageCubit>().changeLanguage('sr');
-            },
+    return BlocBuilder<LanguageCubit, LanguageState>(
+      builder: (context, state) {
+        final languageCode = state.locale.languageCode;
+        final isSerbian = languageCode == 'sr';
 
-            child: Text(
-              'SRP',
-              style: TextStyle(
-                color: isSerbian ? Theme.of(context).primaryColor : Colors.grey,
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8.0),
+          child: Row(
+            children: [
+              Expanded(
+                child: Text(
+                  AppLocalizations.of(context)!.changeLanguage,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              context.read<LanguageCubit>().changeLanguage('en');
-            },
-            child: Text(
-              'ENG',
-              style: TextStyle(
-                color:
-                    !isSerbian ? Theme.of(context).primaryColor : Colors.grey,
+              TextButton(
+                onPressed: () {
+                  context.read<LanguageCubit>().changeLanguage('sr');
+                },
+
+                child: Text(
+                  'SRP',
+                  style: TextStyle(
+                    color:
+                        isSerbian
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
+                  ),
+                ),
               ),
-            ),
+              TextButton(
+                onPressed: () {
+                  context.read<LanguageCubit>().changeLanguage('en');
+                },
+                child: Text(
+                  'ENG',
+                  style: TextStyle(
+                    color:
+                        !isSerbian
+                            ? Theme.of(context).primaryColor
+                            : Colors.grey,
+                  ),
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

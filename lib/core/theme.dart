@@ -39,20 +39,16 @@ class AppTheme {
           textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
-      dropdownMenuTheme: DropdownMenuThemeData(
-        textStyle: const TextStyle(color: primaryColor),
-        menuStyle: MenuStyle(
+      dropdownMenuTheme: const DropdownMenuThemeData(
+        textStyle: TextStyle(color: primaryColor),
+        menuStyle: const MenuStyle(
           backgroundColor: WidgetStatePropertyAll(secondaryColor),
         ),
       ),
-      iconButtonTheme: IconButtonThemeData(
+      iconButtonTheme: const IconButtonThemeData(
         style: ButtonStyle(
-          iconColor: WidgetStatePropertyAll(
-            const Color.fromARGB(255, 245, 247, 245),
-          ),
-          overlayColor: WidgetStatePropertyAll(
-            const Color.fromARGB(0, 35, 46, 37),
-          ),
+          iconColor: WidgetStatePropertyAll(Color.fromARGB(255, 245, 247, 245)),
+          overlayColor: WidgetStatePropertyAll(Color.fromARGB(0, 35, 46, 37)),
         ),
       ),
     );
@@ -93,17 +89,17 @@ class AppTheme {
           textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
-      dropdownMenuTheme: DropdownMenuThemeData(
-        textStyle: const TextStyle(color: secondaryColor),
+      dropdownMenuTheme: const DropdownMenuThemeData(
+        textStyle: TextStyle(color: secondaryColor),
         menuStyle: MenuStyle(
           backgroundColor: WidgetStatePropertyAll(primaryColor),
         ),
       ),
-      iconButtonTheme: IconButtonThemeData(
+      iconButtonTheme: const IconButtonThemeData(
         style: ButtonStyle(
           iconColor: WidgetStatePropertyAll(secondaryColor),
           overlayColor: WidgetStatePropertyAll(
-            const Color.fromARGB(87, 255, 255, 255),
+            Color.fromARGB(87, 255, 255, 255),
           ),
         ),
       ),

@@ -26,13 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   String _getAppBarTitle(BuildContext context) {
-    final user = context.read<AuthenticationRepository>().currentUser;
-
-    final name = user.name;
     final capitalizedName =
-        name != null && name.isNotEmpty
-            ? name[0].toUpperCase() + name.substring(1).toLowerCase()
-            : '';
+        context.read<AuthenticationRepository>().currentUser.capitalizedName;
 
     switch (_selectedIndex) {
       case 0:
