@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
 
 class ProfileTabContent extends StatelessWidget {
   const ProfileTabContent({super.key});
@@ -24,7 +24,7 @@ class ProfileTabContent extends StatelessWidget {
                     onPressed: () {
                       Navigator.of(context).pushNamed(Routes.editProfileScreen);
                     },
-                    label: Text(AppLocalizations.of(context)!.editProfile),
+                    label: Text(translations.editProfile),
                     icon: const Icon(Icons.edit),
                   ),
                 ],
@@ -41,7 +41,7 @@ class ProfileTabContent extends StatelessWidget {
                       size: 44,
                     ),
                   ),
-                  Text(AppLocalizations.of(context)!.settings),
+                  Text(translations.settings),
                 ],
               ),
             ],

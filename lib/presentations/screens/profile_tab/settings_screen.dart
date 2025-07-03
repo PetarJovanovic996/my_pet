@@ -1,13 +1,13 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_theme/change_theme_cubit.dart';
 import 'package:my_pet/presentations/cubit/delete_account/delete_account_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -18,7 +18,7 @@ class SettingsScreen extends StatelessWidget {
           (context) =>
               DeleteAccountCubit(context.read<AuthenticationRepository>()),
       child: Scaffold(
-        appBar: MainAppBar(title: AppLocalizations.of(context)!.settings),
+        appBar: MainAppBar(title: translations.settings),
         body: ListView(
           padding: const EdgeInsets.all(16),
           children: const [
@@ -67,7 +67,7 @@ class _DeleteAccountSettings extends StatelessWidget {
           children: [
             Expanded(
               child: Text(
-                AppLocalizations.of(context)!.deleteAccount,
+                translations.deleteAccount,
                 style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
@@ -80,16 +80,12 @@ class _DeleteAccountSettings extends StatelessWidget {
                   context: context,
                   builder:
                       (dialogContext) => AlertDialog(
-                        title: Text(
-                          AppLocalizations.of(context)!.deleteAccount,
-                        ),
-                        content: Text(
-                          AppLocalizations.of(context)!.confirmDeleteAccount,
-                        ),
+                        title: Text(translations.deleteAccount),
+                        content: Text(translations.confirmDeleteAccount),
                         actions: [
                           TextButton(
                             onPressed: () => Navigator.of(dialogContext).pop(),
-                            child: Text(AppLocalizations.of(context)!.cancel),
+                            child: Text(translations.cancel),
                           ),
                           ElevatedButton(
                             onPressed: () {
@@ -103,7 +99,7 @@ class _DeleteAccountSettings extends StatelessWidget {
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Theme.of(context).primaryColor,
                             ),
-                            child: Text(AppLocalizations.of(context)!.confirm),
+                            child: Text(translations.confirm),
                           ),
                         ],
                       ),
@@ -135,7 +131,7 @@ class _LogOutSettings extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              AppLocalizations.of(context)!.logOut,
+              translations.logOut,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
@@ -165,7 +161,7 @@ class _ChangeThemeSettings extends StatelessWidget {
         children: [
           Expanded(
             child: Text(
-              AppLocalizations.of(context)!.changeTheme,
+              translations.changeTheme,
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
@@ -204,7 +200,7 @@ class _ChangeLanguageSettings extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  AppLocalizations.of(context)!.changeLanguage,
+                  translations.changeLanguage,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
