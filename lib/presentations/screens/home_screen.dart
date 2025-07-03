@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
       case 2:
         return translations.mediappBarTitle;
       case 3:
-        return '${translations.hello} ${user.name!.toUpperCase()}';
+        return '${translations.hello} ${user.capitalizedName}';
       default:
         return translations.newsFeedAppBarTitle;
     }
