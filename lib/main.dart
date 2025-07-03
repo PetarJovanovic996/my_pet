@@ -4,19 +4,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:my_pet/core/app_block_observer.dart';
+import 'package:my_pet/core/firebase_options.dart';
+import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/core/theme.dart';
 import 'package:my_pet/data/models/language.dart';
-import 'package:my_pet/core/firebase_options.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
-import 'package:my_pet/presentations/cubit/change_theme/change_theme_cubit.dart';
+import 'package:my_pet/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
+
+import 'presentations/cubit/change_language/language_cubit.dart';
+import 'presentations/cubit/change_theme/change_theme_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
+
+  initializeLocator();
+
   const SharedPreferencesOptions sharedPreferencesOptions =
       SharedPreferencesOptions();
   final SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -38,7 +43,6 @@ Future<void> main() async {
         ),
         BlocProvider(create: (context) => ChangeThemeCubit()),
       ],
-
       child: MyApp(
         authenticationRepository: authenticationRepository,
         isLoggedIn: isLoggedIn,
@@ -49,9 +53,10 @@ Future<void> main() async {
 
 class MyApp extends StatelessWidget {
   const MyApp({
-    super.key,
     required AuthenticationRepository authenticationRepository,
     this.isLoggedIn = false,
+
+    super.key,
   }) : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
@@ -68,7 +73,7 @@ class MyApp extends StatelessWidget {
               return MaterialApp(
                 locale: languageState.locale,
                 localizationsDelegates: [
-                  AppLocalizations.delegate,
+                  S.delegate,
                   GlobalMaterialLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
