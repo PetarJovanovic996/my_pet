@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/register_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
@@ -81,7 +82,7 @@ class RegisterForm extends StatelessWidget {
                   const CircularProgressIndicator(),
                 const SizedBox(height: 16),
                 const _RegisterButton(),
-                Image.asset('assets/images/appLogo.jpg', height: 140),
+                Image.asset(Assets.images.appLogo.path, height: 140),
               ],
             ),
           ),

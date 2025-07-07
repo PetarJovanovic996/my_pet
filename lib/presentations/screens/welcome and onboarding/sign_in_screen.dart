@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
@@ -53,7 +54,12 @@ class SignInFormn extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(bottom: 30, left: 16, right: 16, top: 30),
+            padding: const EdgeInsets.only(
+              bottom: 30,
+              left: 16,
+              right: 16,
+              top: 30,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: 18,
@@ -68,7 +74,7 @@ class SignInFormn extends StatelessWidget {
                         color: Theme.of(context).hintColor,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(translations.enterSingInInfo),
                   ],
                 ),
@@ -80,7 +86,7 @@ class SignInFormn extends StatelessWidget {
                   const CircularProgressIndicator(),
                 const SizedBox(height: 16),
                 const _SignInButton(),
-                Image.asset('assets/images/appLogo.jpg', height: 140),
+                Image.asset(Assets.images.appLogo.path, height: 140),
               ],
             ),
           ),

@@ -13,28 +13,26 @@ class WelcomeViewScreen extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              // TODO: Refactor assets;
-              // 'assets/images/appMainPic.jpg',
               Assets.images.appMainPic.path,
               fit: BoxFit.cover,
             ),
           ),
 
           Align(
-            alignment: Alignment(0, -0.6),
+            alignment: const Alignment(0, -0.6),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   translations.appName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 46, 37),
+                    color: Color.fromARGB(255, 35, 46, 37),
                     letterSpacing: 6,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -48,33 +46,33 @@ class WelcomeViewScreen extends StatelessWidget {
                 children: [
                   Text(
                     translations.welcomeViewMessage,
-                    style: TextStyle(fontSize: 28, color: Colors.white),
+                    style: const TextStyle(fontSize: 28, color: Colors.white),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
                     translations.welcome,
-                    style: TextStyle(fontSize: 24, color: Colors.white70),
+                    style: const TextStyle(fontSize: 24, color: Colors.white70),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed(Routes.letsStartScreen);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 32,
                         vertical: 12,
                       ),
                     ),
                     child: Text(
                       translations.welcomeButton,
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+                      style: const TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-                  Image.asset('assets/images/appLogo.jpg', height: 80),
+                  Image.asset(Assets.images.appLogo.path, height: 80),
                 ],
               ),
             ),

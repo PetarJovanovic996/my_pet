@@ -2,6 +2,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -18,7 +19,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
         const SizedBox(width: 12),
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
-          child: Image.asset('assets/images/appLogo.jpg', height: 40),
+          child: Image.asset(Assets.images.appLogo.path, height: 40),
         ),
       ],
     );

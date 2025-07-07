@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class LetsStartScreen extends StatelessWidget {
@@ -17,22 +18,22 @@ class LetsStartScreen extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/images/appMainPic.jpg',
+              Assets.images.appMainPic.path,
               fit: BoxFit.cover,
             ),
           ),
 
           Align(
-            alignment: Alignment(0, -0.6),
+            alignment: const Alignment(0, -0.6),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
                   translations.appName,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 46, 37),
+                    color: Color.fromARGB(255, 35, 46, 37),
                     letterSpacing: 6,
                   ),
                 ),
@@ -41,7 +42,7 @@ class LetsStartScreen extends StatelessWidget {
           ),
 
           Align(
-            alignment: Alignment(0, .6),
+            alignment: const Alignment(0, .6),
 
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -54,14 +55,17 @@ class LetsStartScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 213, 213, 225),
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 12,
+                    ),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     spacing: 12,
                     children: [
-                      Image.asset('assets/images/googleLogo.jpg', height: 30),
-                      Text(
+                      Image.asset(Assets.images.googleLogo.path, height: 30),
+                      const Text(
                         "Continue with Google",
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
@@ -69,7 +73,7 @@ class LetsStartScreen extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(
@@ -78,14 +82,17 @@ class LetsStartScreen extends StatelessWidget {
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(209, 38, 38, 224),
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 12,
+                    ),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     spacing: 12,
                     children: [
-                      Image.asset('assets/images/facebookLogo.jpg', height: 30),
-                      Text(
+                      Image.asset(Assets.images.facebookLogo.path, height: 30),
+                      const Text(
                         'Continue with Facebook',
                         style: TextStyle(fontSize: 20, color: Colors.white),
                       ),
@@ -93,18 +100,21 @@ class LetsStartScreen extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
                 ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).pushNamed(Routes.registerScreen);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(179, 255, 255, 255),
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 12,
+                    ),
                   ),
                   label: Text(
                     translations.register,
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   icon: Icon(
                     Icons.app_registration_rounded,
@@ -113,18 +123,21 @@ class LetsStartScreen extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 ElevatedButton.icon(
                   onPressed: () {
                     Navigator.of(context).pushNamed(Routes.logInScreen);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(179, 255, 255, 255),
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 32,
+                      vertical: 12,
+                    ),
                   ),
                   label: Text(
                     translations.singIn,
-                    style: TextStyle(fontSize: 20, color: Colors.black),
+                    style: const TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   icon: Icon(
                     Icons.login,
