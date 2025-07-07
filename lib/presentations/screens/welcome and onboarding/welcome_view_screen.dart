@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 
 class WelcomeViewScreen extends StatelessWidget {
   const WelcomeViewScreen({super.key});
@@ -12,26 +13,26 @@ class WelcomeViewScreen extends StatelessWidget {
         children: [
           Positioned.fill(
             child: Image.asset(
-              'assets/images/appMainPic.jpg',
+              Assets.images.appMainPic.path,
               fit: BoxFit.cover,
             ),
           ),
 
           Align(
-            alignment: Alignment(0, -0.6),
+            alignment: const Alignment(0, -0.6),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.appName,
-                  style: TextStyle(
+                  translations.appName,
+                  style: const TextStyle(
                     fontSize: 48,
                     fontWeight: FontWeight.bold,
-                    color: const Color.fromARGB(255, 35, 46, 37),
+                    color: Color.fromARGB(255, 35, 46, 37),
                     letterSpacing: 6,
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
               ],
             ),
           ),
@@ -44,34 +45,34 @@ class WelcomeViewScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    AppLocalizations.of(context)!.welcomeViewMessage,
-                    style: TextStyle(fontSize: 28, color: Colors.white),
+                    translations.welcomeViewMessage,
+                    style: const TextStyle(fontSize: 28, color: Colors.white),
                   ),
-                  SizedBox(height: 8),
+                  const SizedBox(height: 8),
                   Text(
-                    AppLocalizations.of(context)!.welcome,
-                    style: TextStyle(fontSize: 24, color: Colors.white70),
+                    translations.welcome,
+                    style: const TextStyle(fontSize: 24, color: Colors.white70),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).pushNamed(Routes.letsStartScreen);
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.white,
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 32,
                         vertical: 12,
                       ),
                     ),
                     child: Text(
-                      AppLocalizations.of(context)!.welcomeButton,
-                      style: TextStyle(fontSize: 20, color: Colors.black),
+                      translations.welcomeButton,
+                      style: const TextStyle(fontSize: 20, color: Colors.black),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
 
-                  Image.asset('assets/images/appLogo.jpg', height: 80),
+                  Image.asset(Assets.images.appLogo.path, height: 80),
                 ],
               ),
             ),

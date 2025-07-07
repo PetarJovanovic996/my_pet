@@ -1,11 +1,12 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/cubit/authentication/register_cubit.dart';
-import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:my_pet/core/locator.dart';
+import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
+import 'package:my_pet/presentations/cubit/authentication/register_cubit.dart';
+import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
@@ -13,10 +14,7 @@ class RegisterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-        title: AppLocalizations.of(context)!.register,
-        showSignOut: false,
-      ),
+      appBar: MainAppBar(title: translations.register, showSignOut: false),
       body: Padding(
         padding: const EdgeInsets.all(18),
         child: BlocProvider(
@@ -38,20 +36,15 @@ class RegisterForm extends StatelessWidget {
       listener: (context, state) {
         if (state.status.isSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(
-                AppLocalizations.of(context)!.successfullRegistration,
-              ),
-            ),
+            SnackBar(content: Text(translations.successfullRegistration)),
           );
-          Navigator.of(context).pushReplacementNamed(Routes.logInScreen);
+          Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
         }
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
-                state.errorMessage ??
-                    AppLocalizations.of(context)!.invalidRegistration,
+                state.errorMessage ?? translations.invalidRegistration,
               ),
             ),
           );
@@ -60,13 +53,18 @@ class RegisterForm extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(bottom: 30, left: 16, right: 16, top: 30),
+            padding: const EdgeInsets.only(
+              bottom: 30,
+              left: 16,
+              right: 16,
+              top: 30,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: 18,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.enterUserData,
+                  translations.enterUserData,
                   style: TextStyle(
                     fontSize: 22,
                     color: Theme.of(context).hintColor,
@@ -84,7 +82,7 @@ class RegisterForm extends StatelessWidget {
                   const CircularProgressIndicator(),
                 const SizedBox(height: 16),
                 const _RegisterButton(),
-                Image.asset('assets/images/appLogo.jpg', height: 140),
+                Image.asset(Assets.images.appLogo.path, height: 140),
               ],
             ),
           ),
@@ -107,10 +105,10 @@ class _NameInput extends StatelessWidget {
           onChanged: (name) => context.read<RegisterCubit>().enteredName(name),
           keyboardType: TextInputType.name,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.name,
+            labelText: translations.name,
             errorText:
                 state.name.displayError != null
-                    ? AppLocalizations.of(context)!.invalidName
+                    ? translations.invalidName
                     : null,
           ),
         );
@@ -134,10 +132,10 @@ class _UsernameInput extends StatelessWidget {
                   context.read<RegisterCubit>().enteredUsername(username),
           keyboardType: TextInputType.text,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.username,
+            labelText: translations.username,
             errorText:
                 state.username.displayError != null
-                    ? AppLocalizations.of(context)!.invalidUserName
+                    ? translations.invalidUserName
                     : null,
           ),
         );
@@ -160,10 +158,10 @@ class _EmailInput extends StatelessWidget {
               (email) => context.read<RegisterCubit>().enteredEmail(email),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.email,
+            labelText: translations.email,
             errorText:
                 state.email.displayError != null
-                    ? AppLocalizations.of(context)!.invalidEmail
+                    ? translations.invalidEmail
                     : null,
           ),
         );
@@ -188,10 +186,10 @@ class _PasswordInput extends StatelessWidget {
                   context.read<RegisterCubit>().enteredPassword(password),
           keyboardType: TextInputType.visiblePassword,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.password,
+            labelText: translations.password,
             errorText:
                 state.password.displayError != null
-                    ? AppLocalizations.of(context)!.invalidPassword
+                    ? translations.invalidPassword
                     : null,
           ),
         );
@@ -220,10 +218,10 @@ class _ConfirmPasswordInput extends StatelessWidget {
                   .enteredConfirmedPassword(password),
           keyboardType: TextInputType.visiblePassword,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.confirmPassword,
+            labelText: translations.confirmPassword,
             errorText:
                 state.confirmedPassword.displayError != null
-                    ? AppLocalizations.of(context)!.passwordDontMatch
+                    ? translations.passwordDontMatch
                     : null,
           ),
         );
@@ -244,7 +242,7 @@ class _RegisterButton extends StatelessWidget {
               state.isValid
                   ? () => context.read<RegisterCubit>().register()
                   : null,
-          child: Text(AppLocalizations.of(context)!.register),
+          child: Text(translations.register),
         );
       },
     );

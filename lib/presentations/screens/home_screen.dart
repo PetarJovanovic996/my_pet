@@ -1,11 +1,11 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/news_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/media_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/profile_tab_content.dart';
-import 'package:my_pet/presentations/screens/home%20screen%20/explore_tab_content.dart';
+import 'package:my_pet/core/locator.dart';
+import 'package:my_pet/presentations/screens/explore_tab/explore_tab_content.dart';
+import 'package:my_pet/presentations/screens/media_tab/media_tab_content.dart';
+import 'package:my_pet/presentations/screens/news_feed_tab/news_tab_content.dart';
+import 'package:my_pet/presentations/screens/profile_tab/profile_tab_content.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,15 +30,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     switch (_selectedIndex) {
       case 0:
-        return AppLocalizations.of(context)!.newsFeedAppBarTitle;
+        return translations.newsFeedAppBarTitle;
       case 1:
-        return AppLocalizations.of(context)!.exploreppBarTitle;
+        return translations.exploreppBarTitle;
       case 2:
-        return AppLocalizations.of(context)!.mediappBarTitle;
+        return translations.mediappBarTitle;
       case 3:
-        return '${AppLocalizations.of(context)!.hello} ${user.name!.toUpperCase()}';
+        return '${translations.hello} ${user.capitalizedName}';
       default:
-        return AppLocalizations.of(context)!.newsFeedAppBarTitle;
+        return translations.newsFeedAppBarTitle;
     }
   }
 
@@ -62,20 +62,20 @@ class _HomeScreenState extends State<HomeScreen> {
         items: [
           BottomNavigationBarItem(
             icon: const Icon(Icons.newspaper),
-            label: AppLocalizations.of(context)!.newsFeed,
+            label: translations.newsFeed,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.explore),
-            label: AppLocalizations.of(context)!.explore,
+            label: translations.explore,
           ),
 
           BottomNavigationBarItem(
             icon: const Icon(Icons.newspaper),
-            label: AppLocalizations.of(context)!.media,
+            label: translations.media,
           ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.person_pin_circle_rounded),
-            label: AppLocalizations.of(context)!.profile,
+            label: translations.profile,
           ),
         ],
       ),

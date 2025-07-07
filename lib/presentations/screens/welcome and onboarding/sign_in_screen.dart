@@ -1,11 +1,11 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
-import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/l10n/app_localizations.dart';
-import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
-import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
+import 'package:my_pet/core/locator.dart';
+import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
+import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
+import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class SignInScreen extends StatelessWidget {
   const SignInScreen({super.key});
@@ -13,17 +13,8 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(
-        title: AppLocalizations.of(context)!.singIn,
-        showSignOut: false,
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(18),
-        child: BlocProvider(
-          create: (context) => SignInCubit(AuthenticationRepository()),
-          child: const SignInFormn(),
-        ),
-      ),
+      appBar: MainAppBar(title: translations.singIn, showSignOut: false),
+      body: const Padding(padding: EdgeInsets.all(18), child: SignInFormn()),
     );
   }
 }
@@ -38,9 +29,7 @@ class SignInFormn extends StatelessWidget {
       listener: (context, state) {
         if (state.status.isSuccess) {
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(AppLocalizations.of(context)!.successfullSignIn),
-            ),
+            SnackBar(content: Text(translations.successfullSignIn)),
           );
           Navigator.of(context).pushNamedAndRemoveUntil(
             Routes.homeScreen,
@@ -50,10 +39,7 @@ class SignInFormn extends StatelessWidget {
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
-              content: Text(
-                state.errorMessage ??
-                    AppLocalizations.of(context)!.invalidSignIn,
-              ),
+              content: Text(state.errorMessage ?? translations.invalidSignIn),
             ),
           );
         }
@@ -61,7 +47,12 @@ class SignInFormn extends StatelessWidget {
       builder: (context, state) {
         return SafeArea(
           child: SingleChildScrollView(
-            padding: EdgeInsets.only(bottom: 30, left: 16, right: 16, top: 30),
+            padding: const EdgeInsets.only(
+              bottom: 30,
+              left: 16,
+              right: 16,
+              top: 30,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               spacing: 18,
@@ -69,15 +60,15 @@ class SignInFormn extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      AppLocalizations.of(context)!.almostThere,
+                      translations.almostThere,
 
                       style: TextStyle(
                         fontSize: 20,
                         color: Theme.of(context).hintColor,
                       ),
                     ),
-                    SizedBox(height: 8),
-                    Text(AppLocalizations.of(context)!.enterSingInInfo),
+                    const SizedBox(height: 8),
+                    Text(translations.enterSingInInfo),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -88,7 +79,7 @@ class SignInFormn extends StatelessWidget {
                   const CircularProgressIndicator(),
                 const SizedBox(height: 16),
                 const _SignInButton(),
-                Image.asset('assets/images/appLogo.jpg', height: 140),
+                Image.asset(Assets.images.appLogo.path, height: 140),
               ],
             ),
           ),
@@ -111,10 +102,10 @@ class _EmailInput extends StatelessWidget {
           onChanged: (email) => context.read<SignInCubit>().enteredEmail(email),
           keyboardType: TextInputType.emailAddress,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.email,
+            labelText: translations.email,
             errorText:
                 state.email.displayError != null
-                    ? AppLocalizations.of(context)!.invalidEmail
+                    ? translations.invalidEmail
                     : null,
           ),
         );
@@ -139,10 +130,10 @@ class _PasswordInput extends StatelessWidget {
                   context.read<SignInCubit>().enteredPassword(password),
           keyboardType: TextInputType.visiblePassword,
           decoration: InputDecoration(
-            labelText: AppLocalizations.of(context)!.password,
+            labelText: translations.password,
             errorText:
                 state.password.displayError != null
-                    ? AppLocalizations.of(context)!.invalidPassword
+                    ? translations.invalidPassword
                     : null,
           ),
         );
@@ -161,7 +152,7 @@ class _SignInButton extends StatelessWidget {
         return ElevatedButton(
           onPressed:
               state.isValid ? () => context.read<SignInCubit>().signIn() : null,
-          child: Text(AppLocalizations.of(context)!.singIn),
+          child: Text(translations.singIn),
         );
       },
     );

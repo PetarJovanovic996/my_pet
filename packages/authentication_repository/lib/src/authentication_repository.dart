@@ -113,7 +113,6 @@ class AuthenticationRepository {
       );
       await _firebaseAuth.currentUser?.updateDisplayName(name);
       // TODO: implementirati da se cuva i username nekako
-      await _firebaseAuth.signOut();
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw RegisterWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
@@ -130,6 +129,11 @@ class AuthenticationRepository {
         email: email,
         password: password,
       );
+
+      // await _firebaseAuth.signInWithCustomToken(
+      //   email: email,
+      //   password: password,
+      // );
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw LogInWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {
@@ -183,5 +187,34 @@ class AuthenticationRepository {
 extension on firebase_auth.User {
   User get toUser {
     return User(id: uid, email: email, name: displayName);
+  }
+}
+
+class DeleteAccountFailure implements Exception {
+  const DeleteAccountFailure([this.message = 'Account deletion failed']);
+
+  final String message;
+}
+
+extension AuthenticationRepositoryExtension on AuthenticationRepository {
+  Future<void> deleteAccount() async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user != null) {
+        await user.delete();
+        await _prefs?.clear();
+      } else {
+        throw const DeleteAccountFailure('No user currently signed in.');
+      }
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        throw const DeleteAccountFailure(
+          'Please log in again before deleting your account.',
+        );
+      }
+      throw DeleteAccountFailure(e.message ?? 'Unknown error');
+    } catch (_) {
+      throw const DeleteAccountFailure();
+    }
   }
 }

@@ -2,6 +2,7 @@ import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/routes.dart';
+import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -15,10 +16,10 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
       title: Text(title),
       actions: [
         const LogoutButton(),
-        SizedBox(width: 12),
+        const SizedBox(width: 12),
         Padding(
           padding: const EdgeInsets.only(right: 12.0),
-          child: Image.asset('assets/images/appLogo.jpg', height: 40),
+          child: Image.asset(Assets.images.appLogo.path, height: 40),
         ),
       ],
     );
@@ -34,26 +35,52 @@ class LogoutButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder(
-      stream: context.read<AuthenticationRepository>().user,
-      builder: (context, snapshot) {
-        bool isLoggedIn =
-            snapshot.hasData ? snapshot.data != User.empty : false;
+    return BlocProvider(
+      create:
+          (context) => LogOutCubit(context.read<AuthenticationRepository>()),
+      child: BlocConsumer<LogOutCubit, LogOutState>(
+        builder: (context, state) {
+          if (state is LogOutLoading) {
+            return CircularProgressIndicator(
+              color: Theme.of(context).primaryColorLight,
+            );
+          }
+          return StreamBuilder(
+            stream: context.read<AuthenticationRepository>().user,
+            builder: (context, snapshot) {
+              bool isLoggedIn =
+                  snapshot.hasData ? snapshot.data != User.empty : false;
 
-        if (!isLoggedIn) {
-          return Container();
-        }
+              if (!isLoggedIn) {
+                return Container();
+              }
 
-        return IconButton(
-          onPressed: () {
-            context.read<LogOutCubit>().logOut();
+              return IconButton(
+                onPressed: () => context.read<LogOutCubit>().logOut(),
+                icon: const Icon(Icons.logout),
+              );
+            },
+          );
+        },
+        listener: (context, state) {
+          if (state is LogOutCompleted) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                const SnackBar(content: Text('Successfull logout!')),
+              );
             Navigator.of(
               context,
-            ).pushReplacementNamed(Routes.welcomeViewScreen);
-          },
-          icon: const Icon(Icons.logout),
-        );
-      },
+            ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
+          }
+
+          if (state is LogOutErrorState) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(const SnackBar(content: Text('Logout Error!')));
+          }
+        },
+      ),
     );
   }
 }

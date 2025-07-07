@@ -11,6 +11,16 @@ class User extends Equatable {
 
   static const empty = User(id: '');
 
+  String get capitalizedName {
+    final name = this.name;
+    final capitalizedName =
+        name != null && name.isNotEmpty
+            ? name[0].toUpperCase() + name.substring(1).toLowerCase()
+            : '';
+
+    return capitalizedName;
+  }
+
   @override
   List<Object?> get props => [email, id, name];
 }

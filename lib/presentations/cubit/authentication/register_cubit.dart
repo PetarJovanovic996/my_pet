@@ -11,7 +11,7 @@ import 'package:equatable/equatable.dart';
 part 'register_state.dart';
 
 class RegisterCubit extends Cubit<RegisterState> {
-  RegisterCubit(this._authenticationRepository) : super(RegisterState());
+  RegisterCubit(this._authenticationRepository) : super(const RegisterState());
 
   final AuthenticationRepository _authenticationRepository;
 

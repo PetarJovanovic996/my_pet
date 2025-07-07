@@ -8,7 +8,7 @@ import 'package:my_pet/data/models/validation/password.dart';
 part 'sign_in_state.dart';
 
 class SignInCubit extends Cubit<SignInState> {
-  SignInCubit(this._authenticationRepository) : super(SignInState());
+  SignInCubit(this._authenticationRepository) : super(const SignInState());
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -55,6 +55,23 @@ class SignInCubit extends Cubit<SignInState> {
         ),
       );
     } catch (e) {
+      emit(state.copyWith(status: FormzSubmissionStatus.failure));
+    }
+  }
+
+  Future<void> logInWithGoogle() async {
+    emit(state.copyWith(status: FormzSubmissionStatus.inProgress));
+    try {
+      await _authenticationRepository.logInWithGoogle();
+      emit(state.copyWith(status: FormzSubmissionStatus.success));
+    } on LogInWithGoogleFailure catch (e) {
+      emit(
+        state.copyWith(
+          errorMessage: e.message,
+          status: FormzSubmissionStatus.failure,
+        ),
+      );
+    } catch (_) {
       emit(state.copyWith(status: FormzSubmissionStatus.failure));
     }
   }
