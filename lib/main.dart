@@ -45,6 +45,9 @@ Future<void> main() async {
         BlocProvider(create: (context) => ChangeThemeCubit()),
         BlocProvider(
           create: (context) => SignInCubit(authenticationRepository),
+
+          //TODO: sa pecom
+          // log in log out problem sa sacuvanim unosom
         ),
       ],
       child: MyApp(

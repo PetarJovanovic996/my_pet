@@ -3,7 +3,6 @@ import 'package:my_pet/presentations/screens/home_screen.dart';
 import 'package:my_pet/presentations/screens/profile_tab/settings_screen.dart';
 import 'package:my_pet/presentations/screens/profile_tab/edit_profile_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_facebook_screen.dart';
-import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/continue_with_google_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/lets_start_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/sign_in_screen.dart';
 import 'package:my_pet/presentations/screens/welcome%20and%20onboarding/register_screen.dart';
@@ -15,7 +14,6 @@ class Routes {
 
   static const String logInScreen = 'logIn-screen';
   static const String registerScreen = 'register-screen';
-  static const String continueWithGoogleScreen = 'continue-with-google-screen';
   static const String continueWithFacebookScreen =
       'continue-with-facebook-screen';
   static const String homeScreen = 'home-screen';
@@ -36,7 +34,6 @@ class MyRouter {
           (Routes.continueWithFacebookScreen) =>
             const ContinueWithFacebookScreen(),
 
-          (Routes.continueWithGoogleScreen) => const ContinueWithGoogleScreen(),
           (Routes.settingsScreen) => const SettingsScreen(),
 
           (Routes.editProfileScreen) => const EditProfileScreen(),

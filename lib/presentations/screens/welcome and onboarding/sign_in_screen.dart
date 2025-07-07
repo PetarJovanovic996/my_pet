@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
-import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
@@ -14,36 +13,17 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(title: translations.singIn, showSignOut: false),
-      body: const Padding(padding: EdgeInsets.all(18), child: SignInFormn()),
+      body: const Padding(padding: EdgeInsets.all(18), child: SignInForm()),
     );
   }
 }
 
-class SignInFormn extends StatelessWidget {
-  const SignInFormn({super.key});
+class SignInForm extends StatelessWidget {
+  const SignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SignInCubit, SignInState>(
-      listenWhen: (previous, current) => previous.status != current.status,
-      listener: (context, state) {
-        if (state.status.isSuccess) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text(translations.successfullSignIn)),
-          );
-          Navigator.of(context).pushNamedAndRemoveUntil(
-            Routes.homeScreen,
-            (Route<dynamic> route) => false,
-          );
-        }
-        if (state.status.isFailure) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage ?? translations.invalidSignIn),
-            ),
-          );
-        }
-      },
+    return BlocBuilder<SignInCubit, SignInState>(
       builder: (context, state) {
         return SafeArea(
           child: SingleChildScrollView(
@@ -123,8 +103,8 @@ class _PasswordInput extends StatelessWidget {
       buildWhen: (prev, curr) => prev.password != curr.password,
       builder: (context, state) {
         return TextFormField(
-          obscureText: true,
           initialValue: state.password.value,
+          obscureText: true,
           onChanged:
               (password) =>
                   context.read<SignInCubit>().enteredPassword(password),
