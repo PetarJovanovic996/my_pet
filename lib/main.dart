@@ -10,6 +10,7 @@ import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/core/theme.dart';
 import 'package:my_pet/data/models/language.dart';
 import 'package:my_pet/generated/l10n.dart';
+import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
 
@@ -42,6 +43,9 @@ Future<void> main() async {
           create: (context) => LanguageCubit(sharedPreferences: prefs),
         ),
         BlocProvider(create: (context) => ChangeThemeCubit()),
+        BlocProvider(
+          create: (context) => SignInCubit(authenticationRepository),
+        ),
       ],
       child: MyApp(
         authenticationRepository: authenticationRepository,

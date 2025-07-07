@@ -1,4 +1,3 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
@@ -15,13 +14,7 @@ class SignInScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: MainAppBar(title: translations.singIn, showSignOut: false),
-      body: Padding(
-        padding: const EdgeInsets.all(18),
-        child: BlocProvider(
-          create: (context) => SignInCubit(AuthenticationRepository()),
-          child: const SignInFormn(),
-        ),
-      ),
+      body: const Padding(padding: EdgeInsets.all(18), child: SignInFormn()),
     );
   }
 }
