@@ -100,21 +100,21 @@ class S {
     );
   }
 
-  /// `Register / Sing In`
-  String get singInORregister {
+  /// `Register / Sign In`
+  String get signInORregister {
     return Intl.message(
-      'Register / Sing In',
-      name: 'singInORregister',
+      'Register / Sign In',
+      name: 'signInORregister',
       desc: '',
       args: [],
     );
   }
 
-  /// `Sing In`
-  String get singIn {
+  /// `Sign In`
+  String get signIn {
     return Intl.message(
-      'Sing In',
-      name: 'singIn',
+      'Sign In',
+      name: 'signIn',
       desc: '',
       args: [],
     );
@@ -281,10 +281,10 @@ class S {
   }
 
   /// `Enter your email and password`
-  String get enterSingInInfo {
+  String get enterSignInInfo {
     return Intl.message(
       'Enter your email and password',
-      name: 'enterSingInInfo',
+      name: 'enterSignInInfo',
       desc: '',
       args: [],
     );

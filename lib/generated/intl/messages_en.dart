@@ -38,7 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "enterSingInInfo": MessageLookupByLibrary.simpleMessage(
+        "enterSignInInfo": MessageLookupByLibrary.simpleMessage(
             "Enter your email and password"),
         "enterUserData":
             MessageLookupByLibrary.simpleMessage("Enter user data"),
@@ -70,9 +70,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "profile": MessageLookupByLibrary.simpleMessage("Profile"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
-        "singIn": MessageLookupByLibrary.simpleMessage("Sing In"),
-        "singInORregister":
-            MessageLookupByLibrary.simpleMessage("Register / Sing In"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
+        "signInORregister":
+            MessageLookupByLibrary.simpleMessage("Register / Sign In"),
         "successfullRegistration":
             MessageLookupByLibrary.simpleMessage("Successfull Registration"),
         "successfullSignIn":

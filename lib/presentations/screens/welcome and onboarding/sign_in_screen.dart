@@ -12,7 +12,7 @@ class SignInScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(title: translations.singIn, showSignOut: false),
+      appBar: MainAppBar(title: translations.signIn, showSignOut: false),
       body: const Padding(padding: EdgeInsets.all(18), child: SignInForm()),
     );
   }
@@ -48,7 +48,7 @@ class SignInForm extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    Text(translations.enterSingInInfo),
+                    Text(translations.enterSignInInfo),
                   ],
                 ),
                 const SizedBox(height: 16),
@@ -132,7 +132,7 @@ class _SignInButton extends StatelessWidget {
         return ElevatedButton(
           onPressed:
               state.isValid ? () => context.read<SignInCubit>().signIn() : null,
-          child: Text(translations.singIn),
+          child: Text(translations.signIn),
         );
       },
     );
