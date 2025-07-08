@@ -10,6 +10,7 @@ import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/core/theme.dart';
 import 'package:my_pet/data/models/language.dart';
 import 'package:my_pet/generated/l10n.dart';
+import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
@@ -48,6 +49,9 @@ Future<void> main() async {
 
           //TODO: sa pecom
           // log in log out problem sa sacuvanim unosom
+        ),
+        BlocProvider(
+          create: (context) => LogOutCubit(authenticationRepository),
         ),
       ],
       child: MyApp(
