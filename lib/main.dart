@@ -43,6 +43,7 @@ Future<void> main() async {
           create: (context) => LanguageCubit(sharedPreferences: prefs),
         ),
         BlocProvider(create: (context) => ChangeThemeCubit()),
+        // TODO: LogOutCubit not needed to be on app level.
         BlocProvider(
           create: (context) => LogOutCubit(authenticationRepository),
         ),
