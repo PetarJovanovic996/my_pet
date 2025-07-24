@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
-import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class LetsStartScreen extends StatelessWidget {
@@ -68,56 +65,26 @@ class SelectAuthOption extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         spacing: 16,
         children: [
-          BlocListener<SignInCubit, SignInState>(
-            listenWhen:
-                (previous, current) => previous.status != current.status,
-
-            listener: (context, state) {
-              if (state.status.isSuccess) {
-                ScaffoldMessenger.of(context)
-                  ..hideCurrentSnackBar()
-                  ..showSnackBar(
-                    SnackBar(content: Text(translations.successfullSignIn)),
-                  );
-                Navigator.of(context).pushNamedAndRemoveUntil(
-                  Routes.homeScreen,
-                  (Route<dynamic> route) => false,
-                );
-              }
-              if (state.status.isFailure) {
-                ScaffoldMessenger.of(context)
-                  ..hideCurrentSnackBar()
-                  ..showSnackBar(
-                    SnackBar(
-                      content: Text(
-                        state.errorMessage ?? translations.invalidSignIn,
-                      ),
-                    ),
-                  );
-              }
-            },
-            child: ElevatedButton(
-              key: const Key('loginForm_googleLogin_raisedButton'),
-              onPressed: () => context.read<SignInCubit>().logInWithGoogle(),
-
-              style: ElevatedButton.styleFrom(
-                backgroundColor: const Color.fromARGB(255, 213, 213, 225),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 32,
-                  vertical: 12,
+          ElevatedButton(
+            key: const Key('loginForm_googleLogin_raisedButton'),
+            onPressed:
+                () {}, // TODO: Zamijeniti sa novim cubitom koji hendla google
+            // => context.read<SignInCubit>().logInWithGoogle(),
+            // => context.read<SignInWithGoogleCubit>().logInWithGoogle(),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: const Color.fromARGB(255, 213, 213, 225),
+              padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 12),
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              spacing: 12,
+              children: [
+                Image.asset(Assets.images.googleLogo.path, height: 30),
+                const Text(
+                  "Continue with Google",
+                  style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                spacing: 12,
-                children: [
-                  Image.asset(Assets.images.googleLogo.path, height: 30),
-                  const Text(
-                    "Continue with Google",
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
-                ],
-              ),
+              ],
             ),
           ),
 
