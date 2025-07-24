@@ -1,7 +1,9 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
+import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/sign_in_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
@@ -11,9 +13,44 @@ class SignInScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: MainAppBar(title: translations.signIn, showSignOut: false),
-      body: const Padding(padding: EdgeInsets.all(18), child: SignInForm()),
+    return BlocProvider(
+      create:
+          (context) => SignInCubit(context.read<AuthenticationRepository>()),
+
+      //TODO: sa pecom
+      // log in log out problem sa sacuvanim unosom
+      child: BlocListener<SignInCubit, SignInState>(
+        listenWhen: (previous, current) => previous.status != current.status,
+
+        listener: (context, state) {
+          if (state.status.isSuccess) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(content: Text(translations.successfullSignIn)),
+              );
+            Navigator.of(context).pushNamedAndRemoveUntil(
+              Routes.homeScreen,
+              (Route<dynamic> route) => false,
+            );
+          }
+          if (state.status.isFailure) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                SnackBar(
+                  content: Text(
+                    state.errorMessage ?? translations.invalidSignIn,
+                  ),
+                ),
+              );
+          }
+        },
+        child: Scaffold(
+          appBar: MainAppBar(title: translations.signIn, showSignOut: false),
+          body: const Padding(padding: EdgeInsets.all(18), child: SignInForm()),
+        ),
+      ),
     );
   }
 }
