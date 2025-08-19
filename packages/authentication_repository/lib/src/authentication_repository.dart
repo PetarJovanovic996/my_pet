@@ -112,7 +112,6 @@ class AuthenticationRepository {
         password: password,
       );
       await _firebaseAuth.currentUser?.updateDisplayName(name);
-      // TODO: implementirati da se cuva i username nekako
     } on firebase_auth.FirebaseAuthException catch (e) {
       throw RegisterWithEmailAndPasswordFailure.fromCode(e.code);
     } catch (_) {

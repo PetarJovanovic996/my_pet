@@ -16,9 +16,6 @@ class SignInScreen extends StatelessWidget {
     return BlocProvider(
       create:
           (context) => SignInCubit(context.read<AuthenticationRepository>()),
-
-      //TODO: sa pecom
-      // log in log out problem sa sacuvanim unosom
       child: BlocListener<SignInCubit, SignInState>(
         listenWhen: (previous, current) => previous.status != current.status,
 
