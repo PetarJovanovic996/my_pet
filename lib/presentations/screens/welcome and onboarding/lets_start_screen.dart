@@ -6,6 +6,7 @@ import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/sign_in_with_google_cubit.dart';
+import 'package:my_pet/presentations/widgets/loading_widget.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class LetsStartScreen extends StatelessWidget {
@@ -93,7 +94,7 @@ class SelectAuthOption extends StatelessWidget {
             spacing: 16,
             children: [
               if (state.status.isInProgress)
-                const CircularProgressIndicator(color: Colors.white),
+                const LoadingWidget(color: Colors.white),
               ElevatedButton(
                 key: const Key('loginForm_googleLogin_raisedButton'),
                 onPressed:

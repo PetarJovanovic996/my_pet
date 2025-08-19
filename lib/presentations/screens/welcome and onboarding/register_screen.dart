@@ -6,6 +6,7 @@ import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/register_cubit.dart';
+import 'package:my_pet/presentations/widgets/loading_widget.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -81,7 +82,7 @@ class RegisterForm extends StatelessWidget {
                 const _PasswordInput(),
                 const _ConfirmPasswordInput(),
                 if (state.status.isInProgress)
-                  const CircularProgressIndicator(),
+                  LoadingWidget(color: Theme.of(context).primaryColor),
                 const SizedBox(height: 16),
                 const _RegisterButton(),
                 Image.asset(Assets.images.appLogo.path, height: 140),

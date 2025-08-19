@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/routes.dart';
 import 'package:my_pet/gen/assets.gen.dart';
 import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
+import 'package:my_pet/presentations/widgets/loading_widget.dart';
 
 class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
   const MainAppBar({super.key, required this.title, this.showSignOut = true});
@@ -42,9 +43,7 @@ class LogoutButton extends StatelessWidget {
       child: BlocConsumer<LogOutCubit, LogOutState>(
         builder: (context, state) {
           if (state is LogOutLoading) {
-            return CircularProgressIndicator(
-              color: Theme.of(context).primaryColorLight,
-            );
+            return LoadingWidget(color: Theme.of(context).primaryColorLight);
           }
           return StreamBuilder(
             stream: context.read<AuthenticationRepository>().user,

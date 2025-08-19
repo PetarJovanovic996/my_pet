@@ -88,9 +88,7 @@ class _DeleteAccountSettings extends StatelessWidget {
                           ),
                           ElevatedButton(
                             onPressed: () {
-                              Navigator.of(
-                                dialogContext,
-                              ).pop(); // prvo zatvori dijalog
+                              Navigator.of(dialogContext).pop();
                               context
                                   .read<DeleteAccountCubit>()
                                   .deleteAccount();
