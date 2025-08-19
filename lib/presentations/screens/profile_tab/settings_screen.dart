@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/presentations/cubit/authentication/log_out_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
 import 'package:my_pet/presentations/cubit/change_theme/change_theme_cubit.dart';
 import 'package:my_pet/presentations/cubit/delete_account/delete_account_cubit.dart';
@@ -135,14 +134,11 @@ class _LogOutSettings extends StatelessWidget {
               style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
             ),
           ),
-          IconButton(
-            onPressed: () {
-              context.read<LogOutCubit>().logOut();
-              Navigator.of(
-                context,
-              ).pushReplacementNamed(Routes.welcomeViewScreen);
-            },
-            icon: Icon(Icons.logout, color: Theme.of(context).primaryColor),
+          LogoutButton(
+            color:
+                Theme.of(context).brightness == Brightness.light
+                    ? Theme.of(context).primaryColor
+                    : Colors.white,
           ),
         ],
       ),

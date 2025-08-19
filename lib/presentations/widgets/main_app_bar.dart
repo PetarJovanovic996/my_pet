@@ -30,53 +30,58 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
 }
 
 class LogoutButton extends StatelessWidget {
-  @visibleForTesting
-  const LogoutButton({super.key});
+  const LogoutButton({super.key, this.color = Colors.white});
+
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LogOutCubit, LogOutState>(
-      builder: (context, state) {
-        if (state is LogOutLoading) {
-          return CircularProgressIndicator(
-            color: Theme.of(context).primaryColorLight,
+    return BlocProvider(
+      create:
+          (context) => LogOutCubit(context.read<AuthenticationRepository>()),
+      child: BlocConsumer<LogOutCubit, LogOutState>(
+        builder: (context, state) {
+          if (state is LogOutLoading) {
+            return CircularProgressIndicator(
+              color: Theme.of(context).primaryColorLight,
+            );
+          }
+          return StreamBuilder(
+            stream: context.read<AuthenticationRepository>().user,
+            builder: (context, snapshot) {
+              bool isLoggedIn =
+                  snapshot.hasData ? snapshot.data != User.empty : false;
+
+              if (!isLoggedIn) {
+                return Container();
+              }
+
+              return IconButton(
+                onPressed: () => context.read<LogOutCubit>().logOut(),
+                icon: Icon(Icons.logout, color: color),
+              );
+            },
           );
-        }
-        return StreamBuilder(
-          stream: context.read<AuthenticationRepository>().user,
-          builder: (context, snapshot) {
-            bool isLoggedIn =
-                snapshot.hasData ? snapshot.data != User.empty : false;
+        },
+        listener: (context, state) {
+          if (state is LogOutCompleted) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(
+                const SnackBar(content: Text('Successfull logout!')),
+              );
+            Navigator.of(
+              context,
+            ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
+          }
 
-            if (!isLoggedIn) {
-              return Container();
-            }
-
-            return IconButton(
-              onPressed: () => context.read<LogOutCubit>().logOut(),
-              icon: const Icon(Icons.logout),
-            );
-          },
-        );
-      },
-      listener: (context, state) {
-        if (state is LogOutCompleted) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(
-              const SnackBar(content: Text('Successfull logout!')),
-            );
-          Navigator.of(
-            context,
-          ).pushNamedAndRemoveUntil(Routes.welcomeViewScreen, (_) => false);
-        }
-
-        if (state is LogOutErrorState) {
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(const SnackBar(content: Text('Logout Error!')));
-        }
-      },
+          if (state is LogOutErrorState) {
+            ScaffoldMessenger.of(context)
+              ..hideCurrentSnackBar()
+              ..showSnackBar(const SnackBar(content: Text('Logout Error!')));
+          }
+        },
+      ),
     );
   }
 }
