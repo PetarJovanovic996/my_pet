@@ -14,10 +14,11 @@ class ProfileTabContent extends StatelessWidget {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Column(
                 children: [
+                  //TODO: ako nema slika, onda icon, nakon dodavanja slikaaa
                   const Icon(Icons.person, size: 80),
                   const SizedBox(height: 8),
                   ElevatedButton.icon(
@@ -36,12 +37,11 @@ class ProfileTabContent extends StatelessWidget {
                       Navigator.of(context).pushNamed(Routes.settingsScreen);
                     },
                     icon: Icon(
-                      Icons.settings,
+                      Icons.settings_suggest_rounded,
                       color: Theme.of(context).primaryColor,
                       size: 44,
                     ),
                   ),
-                  Text(translations.settings),
                 ],
               ),
             ],

@@ -89,6 +89,7 @@ class SignInForm extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 const _EmailInput(),
+                //TODO: log in via UserName
                 const _PasswordInput(),
                 if (state.status.isInProgress)
                   LoadingWidget(color: Theme.of(context).primaryColor),

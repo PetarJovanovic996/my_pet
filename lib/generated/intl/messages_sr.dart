@@ -36,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Potvrdite lozinku"),
         "dark": MessageLookupByLibrary.simpleMessage("Tamna"),
         "deleteAccount": MessageLookupByLibrary.simpleMessage("Obriši nalog"),
+        "editPicture": MessageLookupByLibrary.simpleMessage("Uredi Sliku"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Uredi profil"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
         "enterSignInInfo":
