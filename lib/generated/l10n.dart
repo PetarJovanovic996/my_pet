@@ -479,6 +479,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Edit Picture`
+  String get editPicture {
+    return Intl.message(
+      'Edit Picture',
+      name: 'editPicture',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class LinkedNewsButtonsWidget extends StatelessWidget {
   const LinkedNewsButtonsWidget({super.key});
 
+  //TODO: implement this / klikom se ulazi na sajt
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -13,33 +15,33 @@ class LinkedNewsButtonsWidget extends StatelessWidget {
         children: [
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('BLOG'),
-            icon: Icon(Icons.abc),
+            label: const Text('BLOG'),
+            icon: const Icon(Icons.abc),
           ),
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('VIJESTI'),
-            icon: Icon(Icons.abc),
+            label: const Text('VIJESTI'),
+            icon: const Icon(Icons.abc),
           ),
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('SAJT 1'),
-            icon: Icon(Icons.abc),
+            label: const Text('SAJT 1'),
+            icon: const Icon(Icons.abc),
           ),
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('SAJT 2'),
-            icon: Icon(Icons.abc),
+            label: const Text('SAJT 2'),
+            icon: const Icon(Icons.abc),
           ),
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('SAJT 3'),
-            icon: Icon(Icons.abc),
+            label: const Text('SAJT 3'),
+            icon: const Icon(Icons.abc),
           ),
           ElevatedButton.icon(
             onPressed: () {},
-            label: Text('SAJT 4'),
-            icon: Icon(Icons.abc),
+            label: const Text('SAJT 4'),
+            icon: const Icon(Icons.abc),
           ),
         ],
       ),

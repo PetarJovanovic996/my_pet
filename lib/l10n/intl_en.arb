@@ -85,5 +85,7 @@
   "cancel": "Cancel",
   "@cancel": {},
   "confirm": "Confirm",
-  "@confirm": {}
+  "@confirm": {},
+  "editPicture": "Edit Picture",
+  "@editPicture": {}
 }

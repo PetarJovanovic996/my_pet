@@ -16,21 +16,29 @@ class SettingsScreen extends StatelessWidget {
       create:
           (context) =>
               DeleteAccountCubit(context.read<AuthenticationRepository>()),
-      child: Scaffold(
-        appBar: MainAppBar(title: translations.settings),
-        body: ListView(
-          padding: const EdgeInsets.all(16),
-          children: const [
-            _ChangeLanguageSettings(),
-            Divider(),
-            _ChangeThemeSettings(),
-            Divider(),
-            _LogOutSettings(),
-            Divider(),
-            _DeleteAccountSettings(),
-            Divider(),
-          ],
-        ),
+      child: BlocBuilder<LanguageCubit, LanguageState>(
+        //TODO: sa pecom, da li je ovo optimalno?
+        builder: (context, state) {
+          return Scaffold(
+            //TODO: sa pecom samo prokomentarisat
+            // ne mijenja mi se prevod na appbar automatski
+            //ovo gore mi se cini lose, da se rebuild 2 puta
+            appBar: MainAppBar(title: translations.settings),
+            body: ListView(
+              padding: const EdgeInsets.all(16),
+              children: const [
+                _ChangeLanguageSettings(),
+                Divider(),
+                _ChangeThemeSettings(),
+                Divider(),
+                _LogOutSettings(),
+                Divider(),
+                _DeleteAccountSettings(),
+                Divider(),
+              ],
+            ),
+          );
+        },
       ),
     );
   }

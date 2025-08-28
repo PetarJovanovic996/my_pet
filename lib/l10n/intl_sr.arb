@@ -85,5 +85,7 @@
   "cancel": "Poništi",
   "@cancel": {},
   "confirm": "OK",
-  "@confirm": {}
+  "@confirm": {},
+  "editPicture": "Uredi Sliku",
+  "@editPicture": {}
 }
