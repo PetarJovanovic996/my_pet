@@ -87,5 +87,9 @@
   "confirm": "OK",
   "@confirm": {},
   "editPicture": "Uredi Sliku",
-  "@editPicture": {}
+  "@editPicture": {},
+  "successfullEditOfUserData": "Uspjesno ste uredili podatke! Molim vas prijavite se ponovo!",
+  "@successfullEditOfUserData": {},
+  "enterNewPassword": "Unesite Novu Lozinku",
+  "@enterNewPassword": {}
 }

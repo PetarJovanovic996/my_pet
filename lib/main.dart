@@ -13,8 +13,8 @@ import 'package:my_pet/generated/l10n.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/util/legacy_to_async_migration_util.dart';
 
-import 'presentations/cubit/change_language/language_cubit.dart';
-import 'presentations/cubit/change_theme/change_theme_cubit.dart';
+import 'presentations/cubit/settings/change_language/language_cubit.dart';
+import 'presentations/cubit/settings/change_theme/change_theme_cubit.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

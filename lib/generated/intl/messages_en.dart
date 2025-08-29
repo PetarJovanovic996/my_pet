@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editPicture": MessageLookupByLibrary.simpleMessage("Edit Picture"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterNewPassword":
+            MessageLookupByLibrary.simpleMessage("Enter New Password"),
         "enterSignInInfo": MessageLookupByLibrary.simpleMessage(
             "Enter your email and password"),
         "enterUserData":
@@ -74,6 +76,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInORregister":
             MessageLookupByLibrary.simpleMessage("Register / Sign In"),
+        "successfullEditOfUserData": MessageLookupByLibrary.simpleMessage(
+            "Successfull Edit! Please log in once again"),
         "successfullRegistration":
             MessageLookupByLibrary.simpleMessage("Successfull Registration"),
         "successfullSignIn":

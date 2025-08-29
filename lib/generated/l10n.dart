@@ -489,6 +489,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Successfull Edit! Please log in once again`
+  String get successfullEditOfUserData {
+    return Intl.message(
+      'Successfull Edit! Please log in once again',
+      name: 'successfullEditOfUserData',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter New Password`
+  String get enterNewPassword {
+    return Intl.message(
+      'Enter New Password',
+      name: 'enterNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

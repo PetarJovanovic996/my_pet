@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editPicture": MessageLookupByLibrary.simpleMessage("Uredi Sliku"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Uredi profil"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterNewPassword":
+            MessageLookupByLibrary.simpleMessage("Unesite Novu Lozinku"),
         "enterSignInInfo":
             MessageLookupByLibrary.simpleMessage("Unesite vaš email i lozinku"),
         "enterUserData":
@@ -76,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "signIn": MessageLookupByLibrary.simpleMessage("Prijavi se"),
         "signInORregister":
             MessageLookupByLibrary.simpleMessage("Registruj se / Prijavi se"),
+        "successfullEditOfUserData": MessageLookupByLibrary.simpleMessage(
+            "Uspjesno ste uredili podatke! Molim vas prijavite se ponovo!"),
         "successfullRegistration":
             MessageLookupByLibrary.simpleMessage("Registracija uspješna"),
         "successfullSignIn":

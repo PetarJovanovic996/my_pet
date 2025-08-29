@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/presentations/cubit/change_language/language_cubit.dart';
-import 'package:my_pet/presentations/cubit/change_theme/change_theme_cubit.dart';
-import 'package:my_pet/presentations/cubit/delete_account/delete_account_cubit.dart';
+import 'package:my_pet/presentations/cubit/settings/change_language/language_cubit.dart';
+import 'package:my_pet/presentations/cubit/settings/change_theme/change_theme_cubit.dart';
+import 'package:my_pet/presentations/cubit/settings/delete_account/delete_account_cubit.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
 
 class SettingsScreen extends StatelessWidget {

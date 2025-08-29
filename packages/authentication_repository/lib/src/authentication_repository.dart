@@ -28,6 +28,12 @@ class RegisterWithEmailAndPasswordFailure implements Exception {
   final String message;
 }
 
+class ChangePasswordFailure implements Exception {
+  const ChangePasswordFailure([this.message = 'Failed to change password']);
+
+  final String message;
+}
+
 class LogInWithEmailAndPasswordFailure implements Exception {
   const LogInWithEmailAndPasswordFailure([this.message = 'Failed to Log In']);
 
@@ -214,6 +220,55 @@ extension AuthenticationRepositoryExtension on AuthenticationRepository {
       throw DeleteAccountFailure(e.message ?? 'Unknown error');
     } catch (_) {
       throw const DeleteAccountFailure();
+    }
+  }
+
+  Future<void> editUserName(String newName) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user != null) {
+        await user.updateDisplayName(newName);
+        await user.reload();
+        await _saveUserToCache(user.toUser);
+      }
+    } catch (e) {
+      throw Exception(('Failed to update display name'));
+    }
+  }
+
+  Future<void> editUserPassword(String newPassword) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      if (user != null) {
+        await user.updatePassword(newPassword);
+      } else {
+        throw const ChangePasswordFailure('No user signed in');
+      }
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      if (e.code == 'requires-recent-login') {
+        throw const ChangePasswordFailure(
+          'Please log in again before changing your password.',
+        );
+      }
+      throw ChangePasswordFailure(e.message ?? 'Unknown error');
+    } catch (_) {
+      throw const ChangePasswordFailure();
+    }
+  }
+
+  Future<void> reauthenticateUser({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      final user = _firebaseAuth.currentUser;
+      final credential = firebase_auth.EmailAuthProvider.credential(
+        email: email,
+        password: password,
+      );
+      await user?.reauthenticateWithCredential(credential);
+    } on firebase_auth.FirebaseAuthException catch (e) {
+      throw Exception('Reauthentication failed: ${e.message}');
     }
   }
 }
