@@ -91,5 +91,7 @@
   "successfullEditOfUserData": "Uspjesno ste uredili podatke! Molim vas prijavite se ponovo!",
   "@successfullEditOfUserData": {},
   "enterNewPassword": "Unesite Novu Lozinku",
-  "@enterNewPassword": {}
+  "@enterNewPassword": {},
+  "enterCurrentPassword": "Unesite Trenutnu Lozinku",
+  "@enterCurrentPassword": {}
 }

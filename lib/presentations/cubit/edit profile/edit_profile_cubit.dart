@@ -19,7 +19,10 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     emit(
       state.copyWith(
         name: name,
-        isValid: Formz.validate([name, state.password, state.currentPassword]),
+        isValid:
+            state.isChangingPassword
+                ? Formz.validate([name, state.password, state.currentPassword])
+                : Formz.validate([name]),
       ),
     );
   }
@@ -30,6 +33,7 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     emit(
       state.copyWith(
         password: password,
+        isChangingPassword: password.value.isNotEmpty,
         isValid: Formz.validate([state.name, password, state.currentPassword]),
       ),
     );

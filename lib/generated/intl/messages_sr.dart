@@ -39,6 +39,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "editPicture": MessageLookupByLibrary.simpleMessage("Uredi Sliku"),
         "editProfile": MessageLookupByLibrary.simpleMessage("Uredi profil"),
         "email": MessageLookupByLibrary.simpleMessage("Email"),
+        "enterCurrentPassword":
+            MessageLookupByLibrary.simpleMessage("Unesite Trenutnu Lozinku"),
         "enterNewPassword":
             MessageLookupByLibrary.simpleMessage("Unesite Novu Lozinku"),
         "enterSignInInfo":

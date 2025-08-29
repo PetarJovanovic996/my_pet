@@ -91,5 +91,7 @@
   "successfullEditOfUserData": "Successfull Edit! Please log in once again",
   "@successfullEditOfUserData": {},
   "enterNewPassword": "Enter New Password",
-  "@enterNewPassword": {}
+  "@enterNewPassword": {},
+  "enterCurrentPassword": "Enter Current Password",
+  "@enterCurrentPassword": {}
 }

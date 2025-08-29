@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:formz/formz.dart';
 import 'package:my_pet/core/locator.dart';
 import 'package:my_pet/core/routes.dart';
-import 'package:my_pet/data/models/validation/password.dart';
 import 'package:my_pet/presentations/cubit/edit%20profile/edit_profile_cubit.dart';
 import 'package:my_pet/presentations/widgets/loading_widget.dart';
 import 'package:my_pet/presentations/widgets/main_app_bar.dart';
@@ -32,7 +31,9 @@ class EditProfileScreen extends StatelessWidget {
                     content: Text(translations.successfullEditOfUserData),
                   ),
                 );
-                Navigator.of(context).pushReplacementNamed(Routes.logInScreen);
+                Navigator.of(
+                  context,
+                ).pushNamedAndRemoveUntil(Routes.logInScreen, (route) => false);
               }
               if (state.status.isFailure) {
                 ScaffoldMessenger.of(context).showSnackBar(
@@ -51,9 +52,13 @@ class EditProfileScreen extends StatelessWidget {
                   const ChangeNameWidget(),
                   const ChangeUsernameWidget(),
                   const ChangePasswordWidget(),
-                  const SizedBox(height: 24),
                   if (state.status.isInProgress)
-                    LoadingWidget(color: Theme.of(context).primaryColor),
+                    Center(
+                      child: LoadingWidget(
+                        color: Theme.of(context).primaryColor,
+                      ),
+                    ),
+                  const SizedBox(height: 24),
                   const SubmitChangeButton(),
                 ],
               );
@@ -66,6 +71,7 @@ class EditProfileScreen extends StatelessWidget {
 }
 
 class ChangePictureWidget extends StatelessWidget {
+  @visibleForTesting
   const ChangePictureWidget({super.key});
 
   //TODO: logika za dodavanje slike
@@ -89,8 +95,6 @@ class ChangePictureWidget extends StatelessWidget {
 class ChangeNameWidget extends StatelessWidget {
   @visibleForTesting
   const ChangeNameWidget({super.key});
-
-  //TODO: logika
 
   @override
   Widget build(BuildContext context) {
@@ -132,6 +136,7 @@ class ChangeNameWidget extends StatelessWidget {
 }
 
 class ChangeUsernameWidget extends StatelessWidget {
+  @visibleForTesting
   const ChangeUsernameWidget({super.key});
 
   //TODO:
@@ -150,11 +155,11 @@ class ChangeUsernameWidget extends StatelessWidget {
           SizedBox(width: 100, child: Text(translations.username)),
           Expanded(
             child: TextFormField(
-              initialValue: 'Username',
               onChanged: (_) {},
 
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
+                hintText: 'Username',
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),
@@ -175,41 +180,92 @@ class ChangePasswordWidget extends StatelessWidget {
   @visibleForTesting
   const ChangePasswordWidget({super.key});
 
-  //TODO: logika
-  // razmisliti o logici
-  // da li se otvara prozor, pa ide odma alert unesi staru sifru za confirm?
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<EditProfileCubit, EditProfileState>(
+      buildWhen:
+          (prev, curr) =>
+              prev.password != curr.password ||
+              prev.currentPassword != curr.currentPassword ||
+              prev.isChangingPassword != curr.isChangingPassword,
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 100,
+                    child: Text(translations.enterNewPassword),
+                  ),
+                  Expanded(
+                    child: TextFormField(
+                      onChanged:
+                          (newValue) => context
+                              .read<EditProfileCubit>()
+                              .enteredNewPassword(newValue),
+                      keyboardType: TextInputType.visiblePassword,
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        hintText: translations.enterNewPassword,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        errorText:
+                            state.password.displayError != null
+                                ? translations.invalidPassword
+                                : null,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (state.isChangingPassword) ...[const CurrentPasswordWidget()],
+          ],
+        );
+      },
+    );
+  }
+}
+
+class CurrentPasswordWidget extends StatelessWidget {
+  @visibleForTesting
+  const CurrentPasswordWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<EditProfileCubit, EditProfileState>(
-      buildWhen: (prev, curr) => prev.password != curr.password,
+      buildWhen:
+          (prev, curr) =>
+              prev.password != curr.password ||
+              prev.currentPassword != curr.currentPassword ||
+              prev.isChangingPassword != curr.isChangingPassword,
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              SizedBox(width: 100, child: Text(translations.password)),
+              SizedBox(
+                width: 100,
+                child: Text(translations.enterCurrentPassword),
+              ),
               Expanded(
                 child: TextFormField(
-                  onChanged: (newValue) {
-                    context.read<EditProfileCubit>().enteredNewPassword(
-                      newValue,
-                    );
-                  },
-                  keyboardType: TextInputType.visiblePassword,
+                  onChanged:
+                      (value) => context
+                          .read<EditProfileCubit>()
+                          .enteredCurrentPassword(value),
                   obscureText: true,
-                  initialValue: state.password.value,
-
                   decoration: InputDecoration(
-                    hintText: translations.enterNewPassword,
-
+                    hintText: translations.enterCurrentPassword,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
                     errorText:
-                        state.password.displayError != null
-                            // || ovdje zelim da dodam provjeru da li je novi pasvord isti kao stari
-                            // ako jeste da pokazuje error
+                        state.currentPassword.displayError != null
                             ? translations.invalidPassword
                             : null,
                   ),
@@ -224,20 +280,28 @@ class ChangePasswordWidget extends StatelessWidget {
 }
 
 class SubmitChangeButton extends StatelessWidget {
+  @visibleForTesting
   const SubmitChangeButton({super.key});
-
-  //TODO: logika
-  // nakon uspjesne izmjene mora se ici na ponovni logIn
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: ElevatedButton.icon(
-        onPressed: () {},
-        //TODO: transaltions
-        label: const Text('Save Changes'),
-        icon: const Icon(Icons.edit),
-      ),
+    return BlocBuilder<EditProfileCubit, EditProfileState>(
+      buildWhen:
+          (prev, curr) =>
+              prev.isValid != curr.isValid || prev.status != curr.status,
+
+      builder: (context, state) {
+        return Center(
+          child: ElevatedButton.icon(
+            onPressed:
+                state.isValid && !state.status.isInProgress
+                    ? () => context.read<EditProfileCubit>().submitNewData()
+                    : null,
+            label: Text(translations.enterUserData),
+            icon: const Icon(Icons.edit),
+          ),
+        );
+      },
     );
   }
 }
