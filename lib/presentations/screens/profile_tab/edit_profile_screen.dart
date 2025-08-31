@@ -74,12 +74,10 @@ class ChangePictureWidget extends StatelessWidget {
   @visibleForTesting
   const ChangePictureWidget({super.key});
 
-  //TODO: logika za dodavanje slike
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //TODO: ako nema slika onda icon, nakon dodavanja slikaaa
         const Icon(Icons.person, size: 50),
         const SizedBox(height: 8),
         TextButton.icon(
@@ -144,7 +142,7 @@ class ChangeUsernameWidget extends StatelessWidget {
   //2. prikazi useerName
   //3. logika da se isti moze promijeniti
 
-  // ideja je da na postove i app svuda bude prikazan username
+  // ideja je da na postove i app svuda bude prikazan username / kasnije
 
   @override
   Widget build(BuildContext context) {

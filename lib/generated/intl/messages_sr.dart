@@ -87,6 +87,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullSignIn":
             MessageLookupByLibrary.simpleMessage("Uspješno ste prijavljeni"),
         "username": MessageLookupByLibrary.simpleMessage("Korisničko ime"),
+        "usernameTaken":
+            MessageLookupByLibrary.simpleMessage("Username je zauzet"),
         "welcome":
             MessageLookupByLibrary.simpleMessage("Dobrodošli u aplikaciju!"),
         "welcomeButton": MessageLookupByLibrary.simpleMessage("Započni"),

@@ -85,6 +85,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "successfullSignIn":
             MessageLookupByLibrary.simpleMessage("You are logged in"),
         "username": MessageLookupByLibrary.simpleMessage("Username"),
+        "usernameTaken":
+            MessageLookupByLibrary.simpleMessage("Username is already taken"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome to the app!"),
         "welcomeButton": MessageLookupByLibrary.simpleMessage("Lets start"),
         "welcomeViewMessage":

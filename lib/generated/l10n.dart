@@ -519,6 +519,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Username is already taken`
+  String get usernameTaken {
+    return Intl.message(
+      'Username is already taken',
+      name: 'usernameTaken',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

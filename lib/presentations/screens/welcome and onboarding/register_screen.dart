@@ -41,7 +41,10 @@ class RegisterForm extends StatelessWidget {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(translations.successfullRegistration)),
           );
-          Navigator.of(context).pushReplacementNamed(Routes.homeScreen);
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            Routes.homeScreen,
+            (Route<dynamic> route) => false,
+          );
         }
         if (state.status.isFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
