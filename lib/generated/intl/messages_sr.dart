@@ -22,77 +22,96 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "almostThere":
-            MessageLookupByLibrary.simpleMessage("Na korak ste do cilja"),
-        "appName": MessageLookupByLibrary.simpleMessage("MY PET"),
-        "cancel": MessageLookupByLibrary.simpleMessage("Poništi"),
-        "changeLanguage":
-            MessageLookupByLibrary.simpleMessage("Promijeni jezik"),
-        "changeTheme": MessageLookupByLibrary.simpleMessage("Promijeni temu"),
-        "confirm": MessageLookupByLibrary.simpleMessage("OK"),
-        "confirmDeleteAccount": MessageLookupByLibrary.simpleMessage(
-            "Da li ste sigurni? Ovo će trajno ukloniti vaš nalog"),
-        "confirmPassword":
-            MessageLookupByLibrary.simpleMessage("Potvrdite lozinku"),
-        "dark": MessageLookupByLibrary.simpleMessage("Tamna"),
-        "deleteAccount": MessageLookupByLibrary.simpleMessage("Obriši nalog"),
-        "editPicture": MessageLookupByLibrary.simpleMessage("Uredi Sliku"),
-        "editProfile": MessageLookupByLibrary.simpleMessage("Uredi profil"),
-        "email": MessageLookupByLibrary.simpleMessage("Email"),
-        "enterCurrentPassword":
-            MessageLookupByLibrary.simpleMessage("Unesite Trenutnu Lozinku"),
-        "enterNewPassword":
-            MessageLookupByLibrary.simpleMessage("Unesite Novu Lozinku"),
-        "enterSignInInfo":
-            MessageLookupByLibrary.simpleMessage("Unesite vaš email i lozinku"),
-        "enterUserData":
-            MessageLookupByLibrary.simpleMessage("Unesite korisničke podatke"),
-        "explore": MessageLookupByLibrary.simpleMessage("Istraži"),
-        "exploreppBarTitle":
-            MessageLookupByLibrary.simpleMessage("Istraži svijet oko sebe"),
-        "hello": MessageLookupByLibrary.simpleMessage("Zdravo"),
-        "invalidEmail":
-            MessageLookupByLibrary.simpleMessage("Neispravna email adresa"),
-        "invalidName": MessageLookupByLibrary.simpleMessage("Neispravno ime"),
-        "invalidPassword":
-            MessageLookupByLibrary.simpleMessage("Neispravna lozinka"),
-        "invalidRegistration":
-            MessageLookupByLibrary.simpleMessage("Registracija nije uspjela"),
-        "invalidSignIn":
-            MessageLookupByLibrary.simpleMessage("Neuspjela prijava"),
-        "invalidUserName":
-            MessageLookupByLibrary.simpleMessage("Neispravno korisničko ime"),
-        "light": MessageLookupByLibrary.simpleMessage("Svijetla"),
-        "logOut": MessageLookupByLibrary.simpleMessage("Odjavi se"),
-        "media": MessageLookupByLibrary.simpleMessage("Medija"),
-        "mediappBarTitle":
-            MessageLookupByLibrary.simpleMessage("Podijeli svoju galeriju"),
-        "name": MessageLookupByLibrary.simpleMessage("Ime"),
-        "newsFeed": MessageLookupByLibrary.simpleMessage("Novosti"),
-        "newsFeedAppBarTitle":
-            MessageLookupByLibrary.simpleMessage("Šta ima novo?"),
-        "password": MessageLookupByLibrary.simpleMessage("Lozinka"),
-        "passwordDontMatch":
-            MessageLookupByLibrary.simpleMessage("Lozinke se ne poklapaju"),
-        "profile": MessageLookupByLibrary.simpleMessage("Profil"),
-        "register": MessageLookupByLibrary.simpleMessage("Registruj se"),
-        "settings": MessageLookupByLibrary.simpleMessage("Podešavanja"),
-        "signIn": MessageLookupByLibrary.simpleMessage("Prijavi se"),
-        "signInORregister":
-            MessageLookupByLibrary.simpleMessage("Registruj se / Prijavi se"),
-        "successfullEditOfUserData": MessageLookupByLibrary.simpleMessage(
-            "Uspjesno ste uredili podatke! Molim vas prijavite se ponovo!"),
-        "successfullRegistration":
-            MessageLookupByLibrary.simpleMessage("Registracija uspješna"),
-        "successfullSignIn":
-            MessageLookupByLibrary.simpleMessage("Uspješno ste prijavljeni"),
-        "username": MessageLookupByLibrary.simpleMessage("Korisničko ime"),
-        "usernameTaken":
-            MessageLookupByLibrary.simpleMessage("Username je zauzet"),
-        "welcome":
-            MessageLookupByLibrary.simpleMessage("Dobrodošli u aplikaciju!"),
-        "welcomeButton": MessageLookupByLibrary.simpleMessage("Započni"),
-        "welcomeViewMessage":
-            MessageLookupByLibrary.simpleMessage("ZA VAS I VAŠEG PRIJATELJA")
-      };
+    "almostThere": MessageLookupByLibrary.simpleMessage(
+      "Na korak ste do cilja",
+    ),
+    "appName": MessageLookupByLibrary.simpleMessage("MY PET"),
+    "cancel": MessageLookupByLibrary.simpleMessage("Poništi"),
+    "changeLanguage": MessageLookupByLibrary.simpleMessage("Promijeni jezik"),
+    "changeTheme": MessageLookupByLibrary.simpleMessage("Promijeni temu"),
+    "confirm": MessageLookupByLibrary.simpleMessage("OK"),
+    "confirmDeleteAccount": MessageLookupByLibrary.simpleMessage(
+      "Da li ste sigurni? Ovo će trajno ukloniti vaš nalog",
+    ),
+    "confirmPassword": MessageLookupByLibrary.simpleMessage(
+      "Potvrdite lozinku",
+    ),
+    "dark": MessageLookupByLibrary.simpleMessage("Tamna"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Obriši nalog"),
+    "editPicture": MessageLookupByLibrary.simpleMessage("Uredi Sliku"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Uredi profil"),
+    "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "enterCurrentPassword": MessageLookupByLibrary.simpleMessage(
+      "Unesite Trenutnu Lozinku",
+    ),
+    "enterNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Unesite Novu Lozinku",
+    ),
+    "enterSignInInfo": MessageLookupByLibrary.simpleMessage(
+      "Unesite vaš email i lozinku",
+    ),
+    "enterUserData": MessageLookupByLibrary.simpleMessage(
+      "Unesite korisničke podatke",
+    ),
+    "enterUsername": MessageLookupByLibrary.simpleMessage(
+      "Unesite Vas Username",
+    ),
+    "explore": MessageLookupByLibrary.simpleMessage("Istraži"),
+    "exploreppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Istraži svijet oko sebe",
+    ),
+    "hello": MessageLookupByLibrary.simpleMessage("Zdravo"),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Neispravna email adresa",
+    ),
+    "invalidName": MessageLookupByLibrary.simpleMessage("Neispravno ime"),
+    "invalidPassword": MessageLookupByLibrary.simpleMessage(
+      "Neispravna lozinka",
+    ),
+    "invalidRegistration": MessageLookupByLibrary.simpleMessage(
+      "Registracija nije uspjela",
+    ),
+    "invalidSignIn": MessageLookupByLibrary.simpleMessage("Neuspjela prijava"),
+    "invalidUserName": MessageLookupByLibrary.simpleMessage(
+      "Neispravno korisničko ime",
+    ),
+    "light": MessageLookupByLibrary.simpleMessage("Svijetla"),
+    "logOut": MessageLookupByLibrary.simpleMessage("Odjavi se"),
+    "media": MessageLookupByLibrary.simpleMessage("Medija"),
+    "mediappBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Podijeli svoju galeriju",
+    ),
+    "name": MessageLookupByLibrary.simpleMessage("Ime"),
+    "newsFeed": MessageLookupByLibrary.simpleMessage("Novosti"),
+    "newsFeedAppBarTitle": MessageLookupByLibrary.simpleMessage(
+      "Šta ima novo?",
+    ),
+    "password": MessageLookupByLibrary.simpleMessage("Lozinka"),
+    "passwordDontMatch": MessageLookupByLibrary.simpleMessage(
+      "Lozinke se ne poklapaju",
+    ),
+    "profile": MessageLookupByLibrary.simpleMessage("Profil"),
+    "register": MessageLookupByLibrary.simpleMessage("Registruj se"),
+    "settings": MessageLookupByLibrary.simpleMessage("Podešavanja"),
+    "signIn": MessageLookupByLibrary.simpleMessage("Prijavi se"),
+    "signInORregister": MessageLookupByLibrary.simpleMessage(
+      "Registruj se / Prijavi se",
+    ),
+    "successfullEditOfUserData": MessageLookupByLibrary.simpleMessage(
+      "Uspjesno ste uredili podatke! Molim vas prijavite se ponovo!",
+    ),
+    "successfullRegistration": MessageLookupByLibrary.simpleMessage(
+      "Registracija uspješna",
+    ),
+    "successfullSignIn": MessageLookupByLibrary.simpleMessage(
+      "Uspješno ste prijavljeni",
+    ),
+    "username": MessageLookupByLibrary.simpleMessage("Korisničko ime"),
+    "usernameTaken": MessageLookupByLibrary.simpleMessage("Username je zauzet"),
+    "welcome": MessageLookupByLibrary.simpleMessage("Dobrodošli u aplikaciju!"),
+    "welcomeButton": MessageLookupByLibrary.simpleMessage("Započni"),
+    "welcomeViewMessage": MessageLookupByLibrary.simpleMessage(
+      "ZA VAS I VAŠEG PRIJATELJA",
+    ),
+  };
 }

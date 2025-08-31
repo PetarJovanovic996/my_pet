@@ -95,5 +95,7 @@
   "enterCurrentPassword": "Unesite Trenutnu Lozinku",
   "@enterCurrentPassword": {},
   "usernameTaken": "Username je zauzet",
-  "@usernameTaken": {}
+  "@usernameTaken": {},
+  "enterUsername": "Unesite Vas Username",
+  "@enterUsername": {}
 }

@@ -50,7 +50,7 @@ class EditProfileScreen extends StatelessWidget {
                   const ChangePictureWidget(),
                   const SizedBox(height: 12),
                   const ChangeNameWidget(),
-                  const ChangeUsernameWidget(),
+                  const AddUsernameWidget(),
                   const ChangePasswordWidget(),
                   if (state.status.isInProgress)
                     Center(
@@ -133,16 +133,16 @@ class ChangeNameWidget extends StatelessWidget {
   }
 }
 
-class ChangeUsernameWidget extends StatelessWidget {
+class AddUsernameWidget extends StatelessWidget {
   @visibleForTesting
-  const ChangeUsernameWidget({super.key});
+  const AddUsernameWidget({super.key});
 
   //TODO:
-  //1. napraviti da se u bazi cuva username da bi se ovdje mogao prikazati
+  //1. napraviti da se u bazi cuva username da bi se mogao prikazivati kroz app
   //2. prikazi useerName
   //3. logika da se isti moze promijeniti
 
-  // ideja je da na postove i app svuda bude prikazan username / kasnije
+  // ideja je da na postove i app svuda bude prikazan username / kada ga nema , onda name
 
   @override
   Widget build(BuildContext context) {
@@ -157,7 +157,7 @@ class ChangeUsernameWidget extends StatelessWidget {
 
               keyboardType: TextInputType.name,
               decoration: InputDecoration(
-                hintText: 'Username',
+                hintText: translations.enterUsername,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12),
                 ),

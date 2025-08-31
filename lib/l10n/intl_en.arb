@@ -95,5 +95,7 @@
   "enterCurrentPassword": "Enter Current Password",
   "@enterCurrentPassword": {},
   "usernameTaken": "Username is already taken",
-  "@usernameTaken": {}
+  "@usernameTaken": {},
+  "enterUsername": "Enter Your Username",
+  "@enterUsername": {}
 }

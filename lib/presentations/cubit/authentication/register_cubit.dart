@@ -5,7 +5,6 @@ import 'package:my_pet/data/models/validation/confirmed_password.dart';
 import 'package:my_pet/data/models/validation/email.dart';
 import 'package:my_pet/data/models/validation/name.dart';
 import 'package:my_pet/data/models/validation/password.dart';
-import 'package:my_pet/data/models/validation/username.dart';
 import 'package:equatable/equatable.dart';
 
 part 'register_state.dart';
@@ -23,24 +22,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         name: name,
         isValid: Formz.validate([
           name,
-          state.username,
-          state.email,
-          state.password,
-          state.confirmedPassword,
-        ]),
-      ),
-    );
-  }
-
-  void enteredUsername(String value) {
-    final username = Username.dirty(value);
-
-    emit(
-      state.copyWith(
-        username: username,
-        isValid: Formz.validate([
-          state.name,
-          username,
           state.email,
           state.password,
           state.confirmedPassword,
@@ -57,7 +38,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         email: email,
         isValid: Formz.validate([
           state.name,
-          state.username,
           email,
           state.password,
           state.confirmedPassword,
@@ -80,7 +60,6 @@ class RegisterCubit extends Cubit<RegisterState> {
 
         isValid: Formz.validate([
           state.name,
-          state.username,
           state.email,
           password,
           confirmedPassword,
@@ -100,7 +79,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         confirmedPassword: confirmedPassword,
         isValid: Formz.validate([
           state.name,
-          state.username,
           state.email,
           state.password,
           confirmedPassword,

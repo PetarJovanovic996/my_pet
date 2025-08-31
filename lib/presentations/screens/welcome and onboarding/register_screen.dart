@@ -80,7 +80,6 @@ class RegisterForm extends StatelessWidget {
                 const SizedBox(height: 16),
 
                 const _NameInput(),
-                const _UsernameInput(),
                 const _EmailInput(),
                 const _PasswordInput(),
                 const _ConfirmPasswordInput(),
@@ -115,33 +114,6 @@ class _NameInput extends StatelessWidget {
             errorText:
                 state.name.displayError != null
                     ? translations.invalidName
-                    : null,
-          ),
-        );
-      },
-    );
-  }
-}
-
-class _UsernameInput extends StatelessWidget {
-  const _UsernameInput();
-
-  @override
-  Widget build(BuildContext context) {
-    return BlocBuilder<RegisterCubit, RegisterState>(
-      buildWhen: (prev, curr) => prev.username != curr.username,
-      builder: (context, state) {
-        return TextFormField(
-          initialValue: state.username.value,
-          onChanged:
-              (username) =>
-                  context.read<RegisterCubit>().enteredUsername(username),
-          keyboardType: TextInputType.text,
-          decoration: InputDecoration(
-            labelText: translations.username,
-            errorText:
-                state.username.displayError != null
-                    ? translations.invalidUserName
                     : null,
           ),
         );
